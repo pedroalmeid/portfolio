@@ -39,14 +39,40 @@ const info = defineCollection({
     z.object({
       schemaType: z.literal('home'),
       heroTitle: z.string(),
-      heroSubtitle: z.string(),
       bio: z.string(),
+      contactBtnText: z.string(),
+      cvBtnText: z.string(),
+      highlights: z.array(
+        z.object({
+          type: z.enum(['project', 'paper']),
+          id: z.string()
+        })
+      ),
+      aboutTitle: z.string(),
+      aboutText: z.string(),
+    }),
+    // Sidebar Schema
+    z.object({
+      schemaType: z.literal('sidebar'),
+      name: z.string(),
+      subtitle: z.string(),
+      status: z.string(),
+      avatarUrl: z.string(),
+      socials: z.array(
+        z.object({
+          name: z.string(),
+          url: z.string(),
+          icon: z.string()
+        })
+      ),
+      copyright: z.string()
     }),
     // Projects Schema
     z.object({
       schemaType: z.literal('projects'),
       projects: z.array(
         z.object({
+          id: z.string().optional(),
           name: z.string(),
           description: z.string(),
           url: z.string().url().optional(),
@@ -59,6 +85,7 @@ const info = defineCollection({
       schemaType: z.literal('papers'),
       papers: z.array(
         z.object({
+          id: z.string().optional(),
           title: z.string(),
           authors: z.array(z.string()),
           journal: z.string(),

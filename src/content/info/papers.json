@@ -2,18 +2,27 @@
   "schemaType": "papers",
   "papers": [
     {
-      "title": "Análise Comparativa de Desempenho e Consumo Energético: Client-side Rendering vs. Static Site Generation",
-      "authors": ["Daniel Silva", "Marta Oliveira"],
-      "journal": "Revista Brasileira de Engenharia de Software",
+      "id": "otimizacao-consultas-grafos",
+      "title": "Otimização de Consultas em Grafos de Conhecimento com Aprendizado por Reforço",
+      "authors": [
+        "Pedro José Campos de Almeida",
+        "Carlos Mendes",
+        "Fernanda Lima"
+      ],
+      "journal": "SBBD 2024 — Simpósio Brasileiro de Banco de Dados",
       "year": 2024,
-      "link": "https://example.org/papers/static-vs-client.pdf"
+      "link": "https://example.org/papers/otimizacao-consultas-grafos.pdf"
     },
     {
-      "title": "Optimizing Hydration Costs in Modern JavaScript Frameworks via Island Architectures",
-      "authors": ["Daniel Silva", "Grace Hopper"],
-      "journal": "International Journal of Web Engineering",
+      "id": "analise-consenso-distribuido",
+      "title": "Análise Comparativa de Algoritmos de Consenso em Sistemas Distribuídos de Larga Escala",
+      "authors": [
+        "Pedro José Campos de Almeida",
+        "Marta Oliveira"
+      ],
+      "journal": "Revista de Sistemas Distribuídos Aplicados",
       "year": 2025,
-      "link": "https://example.org/papers/island-architectures.pdf"
+      "link": "https://example.org/papers/consenso-distribuido.pdf"
     }
   ]
 }

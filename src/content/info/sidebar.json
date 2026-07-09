@@ -1,0 +1,25 @@
+{
+  "schemaType": "sidebar",
+  "name": "Pedro José Almeida",
+  "subtitle": "CS @ UFJF",
+  "status": "Aberto a oportunidades",
+  "avatarUrl": "/src/assets/avatar.png",
+  "socials": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/pedroalmeid",
+      "icon": "github"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://linkedin.com/in/pedroalmeid",
+      "icon": "linkedin"
+    },
+    {
+      "name": "Email",
+      "url": "mailto:pedro.almeida@ufjf.edu.br",
+      "icon": "email"
+    }
+  ],
+  "copyright": "© 2025 Pedro José Campos de Almeida"
+}

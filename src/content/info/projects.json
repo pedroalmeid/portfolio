@@ -2,16 +2,18 @@
   "schemaType": "projects",
   "projects": [
     {
-      "name": "HyperStatic CMS",
-      "description": "Um CMS headless e estático otimizado para gerar páginas web estáticas em menos de 100ms utilizando cache descentralizado.",
-      "url": "https://github.com/exemplo/hyperstatic-cms",
-      "techStack": ["Golang", "SvelteKit", "Tailwind CSS"]
+      "id": "dht-chord",
+      "name": "DHT-Chord",
+      "description": "Implementação em Go do protocolo Chord para tabelas hash distribuídas (DHT), com suporte a tolerância a falhas, roteamento eficiente e auto-estabilização de nós.",
+      "url": "https://github.com/pedroalmeid/dht-chord",
+      "techStack": ["Go", "gRPC", "Protobuf"]
     },
     {
-      "name": "GraphQL LightClient",
-      "description": "Um cliente de GraphQL ultra enxuto para dispositivos IoT e conexões de baixa largura de banda.",
-      "url": "https://github.com/exemplo/graphql-lightclient",
-      "techStack": ["Rust", "WebAssembly"]
+      "id": "lisptoy",
+      "name": "LispToy",
+      "description": "Um interpretador minimalista para um dialeto de Lisp escrito em Python, contendo avaliador REPL recursivo, escopo dinâmico e suporte a closures.",
+      "url": "https://github.com/pedroalmeid/lisptoy",
+      "techStack": ["Python", "PLY"]
     }
   ]
 }

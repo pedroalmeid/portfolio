@@ -1,6 +1,19 @@
 {
   "schemaType": "home",
-  "heroTitle": "Engenharia de Software de Alta Performance",
-  "heroSubtitle": "Desenvolvedor Especialista em Arquiteturas Estáticas, Sistemas Escaláveis e UI de Alta Performance.",
-  "bio": "Olá! Sou engenheiro de software sênior focado em construir aplicações estáticas com performance máxima, otimização extrema para SEO, acessibilidade e interfaces interativas ricas. Especializado em ecossistemas modernos como Astro, Svelte, Tailwind CSS e TypeScript."
+  "heroTitle": "Pedro José Campos de Almeida",
+  "bio": "Estudante de Ciência da Computação na UFJF, pesquisador em <mark>sistemas distribuídos</mark> e apaixonado por <mark>compiladores</mark> e teoria da computação. Construo software que importa — correto, eficiente e bem fundamentado.",
+  "contactBtnText": "Falar comigo",
+  "cvBtnText": "Currículo PDF",
+  "highlights": [
+    {
+      "type": "project",
+      "id": "compilador-minic"
+    },
+    {
+      "type": "paper",
+      "id": "otimizacao-consultas-grafos"
+    }
+  ],
+  "aboutTitle": "Sobre",
+  "aboutText": "Atualmente no 5º período da graduação em Ciência da Computação na <strong>UFJF</strong>, com foco em desenvolvimento Full-Stack e pesquisa aplicada em Data Science. Minha IC investiga <mark>IA Explicável (XAI)</mark> e <mark>Inferência Causal</mark> aplicadas à agricultura.<br><br>Atuo como desenvolvedor Full-Stack na <strong>CIMO Engenharia e Soluções Ambientais</strong> em modelo de intraempreendedorismo, construindo produtos digitais do zero. Tenho interesse particular em <mark>Python</mark> e <mark>Java</mark> para sistemas de produção."
 }
