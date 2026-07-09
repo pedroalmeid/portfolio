@@ -111,11 +111,13 @@ const info = defineCollection({
       schemaType: z.literal('projects'),
       projects: z.array(
         z.object({
-          id: z.string().optional(),
+          id: z.string(),
           name: z.string(),
           description: z.string(),
-          url: z.string().url().optional(),
-          techStack: z.array(z.string()).optional(),
+          url: z.string().url(),
+          techStack: z.array(z.string()),
+          year: z.number(),
+          caseSlug: z.string().optional(),
         })
       ),
     }),

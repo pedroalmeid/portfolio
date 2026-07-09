@@ -1,6 +1,8 @@
 ---
 import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { getEntry } from 'astro:content';
 import BaseLayout from '../../components/astro/BaseLayout.astro';
+import avatarImg from '../../assets/avatar.png';
 
 export async function getStaticPaths() {
   const cases = await getCollection('cases');
@@ -17,88 +19,165 @@ interface Props {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 
-// Format date helper
-const formatDate = (date: Date) => {
-  return new Intl.DateTimeFormat('pt-BR', {
-    day: '2-digit',
-    month: 'long',
-    year: 'numeric'
-  }).format(date);
-};
+// Fetch matching project metadata from projects.json
+const projectsEntry = await getEntry('info', 'projects');
+const project = projectsEntry && projectsEntry.data.schemaType === 'projects'
+  ? projectsEntry.data.projects.find((p) => p.caseSlug === entry.id)
+  : null;
+
+const year = project ? project.year : new Date(entry.data.date).getFullYear();
+const techStack = project ? project.techStack : entry.data.techStack;
+const repositoryUrl = project ? project.url : entry.data.repository;
 ---
 
-<BaseLayout title={`${entry.data.title} | Caso de Estudo`} description={entry.data.description}>
-  <article class="space-y-8 max-w-3xl mx-auto">
-    <!-- Meta details -->
-    <div class="space-y-4 text-center sm:text-left">
-      <a href="/projetos" class="text-sm font-semibold text-brand-cyan hover:underline inline-flex items-center space-x-1">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-        </svg>
-        <span>Voltar para Projetos</span>
+<BaseLayout title={`${entry.data.title} | Caso de Estudo`} description={entry.data.description} mainClass="mx-auto">
+  <article class="space-y-6 max-w-2xl">
+    
+    <!-- Breadcrumb Nav -->
+    <div class="flex items-center space-x-2 text-xs text-text-secondary select-none mb-6">
+      <a href="/projetos" class="hover:text-accent transition-colors flex items-center">
+        <span>&larr; Voltar</span>
       </a>
-
-      <div class="flex items-center justify-center sm:justify-start space-x-3 text-xs text-slate-400">
-        <span>{formatDate(entry.data.date)}</span>
-        <span>•</span>
-        <span>Caso de Estudo</span>
-      </div>
-
-      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-        {entry.data.title}
-      </h1>
-
-      <p class="text-lg text-slate-300 font-light leading-relaxed">
-        {entry.data.description}
-      </p>
-
-      <div class="flex flex-wrap gap-2 justify-center sm:justify-start pt-2">
-        {entry.data.techStack.map((tech) => (
-          <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-slate-300">
-            {tech}
-          </span>
-        ))}
-      </div>
-
-      {entry.data.repository && (
-        <div class="pt-4 flex justify-center sm:justify-start">
-          <a 
-            href={entry.data.repository} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="px-5 py-2 rounded-full text-sm font-semibold glass glass-hover text-white flex items-center space-x-2"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-              <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-            </svg>
-            <span>Ver Repositório no GitHub</span>
-          </a>
-        </div>
-      )}
+      <span class="text-border">|</span>
+      <span>{entry.data.title}</span>
     </div>
+
+    <!-- Title -->
+    <h1 class="font-extrabold text-text-primary text-[2.5rem] leading-[1.15] tracking-tight">
+      {entry.data.title}
+    </h1>
+
+    <!-- Author & Meta Info Row -->
+    <div class="flex items-center space-x-3 select-none">
+      <img src={avatarImg.src} alt="Pedro José" class="w-9 h-9 rounded-full border border-border object-cover" />
+      <div>
+        <div class="font-bold text-xs text-text-primary leading-tight">Pedro José Campos de Almeida</div>
+        <div class="text-[10px] text-text-secondary leading-none mt-0.5">
+          {year} · {techStack.join(', ')}
+        </div>
+      </div>
+    </div>
+
+    <!-- GitHub Repository Button -->
+    {repositoryUrl && (
+      <div class="pt-2 select-none">
+        <a 
+          href={repositoryUrl} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="btn-mini-github px-4! py-2! inline-flex"
+        >
+          <svg class="w-3.5 h-3.5 mr-1.5" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+          </svg>
+          <span>GitHub</span>
+        </a>
+      </div>
+    )}
+
+    <hr class="border-t border-border mt-6 mb-8" />
 
     <!-- Article Content -->
-    <div class="prose prose-invert max-w-none pt-8 border-t border-white/5 text-slate-300 leading-relaxed space-y-6">
+    <div class="c-prose">
       <Content />
     </div>
+
   </article>
+
+  <!-- Client-Side Mermaid support -->
+  <script is:inline src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" id="mermaid-script"></script>
+  <script is:inline>
+    (function() {
+      const script = document.getElementById('mermaid-script');
+      if (script) {
+        script.addEventListener('load', () => {
+          initializeAndRenderMermaid();
+        });
+        // Run immediately if already loaded
+        if (typeof mermaid !== 'undefined') {
+          initializeAndRenderMermaid();
+        }
+      }
+
+      async function initializeAndRenderMermaid() {
+        if (typeof mermaid !== 'undefined') {
+          mermaid.initialize({ startOnLoad: false, theme: 'default' });
+
+          const codeBlocks = document.querySelectorAll('pre[data-language="mermaid"], pre[class*="mermaid"], code[class*="mermaid"]');
+          if (codeBlocks.length === 0) return;
+          
+          for (const block of codeBlocks) {
+            const rawText = block.innerText || block.textContent;
+            const parent = block.tagName === 'CODE' ? block.parentElement : block;
+            if (parent) {
+              const container = document.createElement('div');
+              container.className = 'mermaid my-6 flex justify-center w-full';
+              container.textContent = rawText.trim();
+              parent.replaceWith(container);
+            }
+          }
+          await mermaid.run();
+        }
+      }
+
+      // Safeguard for rapid transitions or custom events
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeAndRenderMermaid);
+      } else {
+        initializeAndRenderMermaid();
+      }
+    })();
+  </script>
 </BaseLayout>
 
 <style is:global>
-  /* Base styles for markdown rendered text */
-  .prose h1, .prose h2, .prose h3, .prose h4 {
-    color: #ffffff;
+  /* Rich styling for markdown rendered content in Case Studies */
+  .c-prose h2 {
     font-weight: 700;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
   }
-  .prose h1 { font-size: 1.875rem; }
-  .prose h2 { font-size: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.25rem; }
-  .prose h3 { font-size: 1.25rem; }
-  .prose p { margin-bottom: 1.25rem; }
-  .prose ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; }
-  .prose li { margin-bottom: 0.5rem; }
-  .prose a { color: #00f2fe; text-decoration: underline; }
-  .prose a:hover { color: #4facfe; }
+  .c-prose h2:not(:first-of-type) {
+    border-top: 1px solid var(--color-border);
+    padding-top: 2rem;
+    margin-top: 2rem;
+  }
+  .c-prose p {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.625;
+    margin-bottom: 1.5rem;
+  }
+  .c-prose ul {
+    list-style-type: disc;
+    padding-left: 1.25rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+  .c-prose li {
+    margin-bottom: 0.5rem;
+    line-height: 1.625;
+  }
+  .c-prose pre {
+    background-color: var(--color-bg-card) !important;
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8125rem;
+    margin: 1.5rem 0;
+  }
+  .c-prose code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+  .c-prose p > code, .c-prose li > code {
+    background-color: var(--color-bg-hover);
+    color: var(--color-text-primary);
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    border: 1px solid var(--color-border);
+  }
 </style>

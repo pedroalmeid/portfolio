@@ -2,18 +2,39 @@
   "schemaType": "projects",
   "projects": [
     {
-      "id": "dht-chord",
-      "name": "DHT-Chord",
-      "description": "Implementação em Go do protocolo Chord para tabelas hash distribuídas (DHT), com suporte a tolerância a falhas, roteamento eficiente e auto-estabilização de nós.",
-      "url": "https://github.com/pedroalmeid/dht-chord",
-      "techStack": ["Go", "gRPC", "Protobuf"]
+      "id": "compilador-minic",
+      "name": "Compilador MiniC",
+      "description": "Compilador completo para um subconjunto de C: análise léxica, sintática, semântica e geração de código LLVM IR. Suporta funções, ponteiros e arrays.",
+      "url": "https://github.com/pedroalmeid/compilador-minic",
+      "techStack": ["C", "Flex", "Bison", "LLVM"],
+      "year": 2024,
+      "caseSlug": "compilador-minic"
     },
     {
-      "id": "lisptoy",
-      "name": "LispToy",
-      "description": "Um interpretador minimalista para um dialeto de Lisp escrito em Python, contendo avaliador REPL recursivo, escopo dinâmico e suporte a closures.",
-      "url": "https://github.com/pedroalmeid/lisptoy",
-      "techStack": ["Python", "PLY"]
+      "id": "raft-consenso-distribuido",
+      "name": "Raft — Consenso Distribuído",
+      "description": "Implementação do protocolo Raft para consenso em sistemas distribuídos. Tolerância a falhas de líder, replicação de log e snapshots.",
+      "url": "https://github.com/pedroalmeid/raft-consensus",
+      "techStack": ["Go", "gRPC", "Docker"],
+      "year": 2024,
+      "caseSlug": "raft-consenso-distribuido"
+    },
+    {
+      "id": "engine-recomendacao",
+      "name": "Engine de Recomendação",
+      "description": "Sistema de recomendação híbrido combinando filtragem colaborativa e content-based para uma plataforma acadêmica com 50k usuários.",
+      "url": "https://github.com/pedroalmeid/recommendation-engine",
+      "techStack": ["Python", "scikit-learn", "FastAPI", "PostgreSQL"],
+      "year": 2023,
+      "caseSlug": "engine-recomendacao"
+    },
+    {
+      "id": "analisador-data-races",
+      "name": "Analisador de Data Races",
+      "description": "Ferramenta de análise estática baseada em LLVM para detecção de condições de corrida em programas C/C++ concorrentes.",
+      "url": "https://github.com/pedroalmeid/data-race-analyzer",
+      "techStack": ["C", "C++", "LLVM"],
+      "year": 2023
     }
   ]
 }

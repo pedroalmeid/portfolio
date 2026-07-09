@@ -7,11 +7,13 @@ import { Home, FileText, Briefcase, BookOpen, Send, Mail, Menu } from '@lucide/a
 interface Props {
   title?: string;
   description?: string;
+  mainClass?: string;
 }
 
 const { 
   title = "Pedro José Campos de Almeida | Portfólio", 
-  description = "Portfólio de Pedro José Campos de Almeida, estudante de Ciência da Computação na UFJF e pesquisador em sistemas distribuídos." 
+  description = "Portfólio de Pedro José Campos de Almeida, estudante de Ciência da Computação na UFJF e pesquisador em sistemas distribuídos.",
+  mainClass = ""
 } = Astro.props;
 
 // Get sidebar content
@@ -160,7 +162,7 @@ const navItems = [
     <!-- Main Content Area -->
     <div class="flex-1 flex flex-col min-h-screen min-w-0 bg-white">
       <!-- Main Content -->
-      <main class="flex-1 w-full max-w-2xl px-6 pt-12 pb-32 md:px-16 md:pt-16 md:pb-48">
+      <main class={`flex-1 w-full max-w-2xl px-6 pt-12 pb-32 md:px-16 md:pt-16 md:pb-48 ${mainClass}`}>
         <slot />
       </main>
     </div>
