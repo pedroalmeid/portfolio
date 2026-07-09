@@ -1,6 +1,10 @@
 {
   "schemaType": "contact",
-  "email": "daniel.silva@exemplo.com",
-  "github": "https://github.com/exemplo",
-  "linkedin": "https://linkedin.com/in/exemplo"
+  "title": "Vamos conversar",
+  "description": "Aberto a oportunidades de pesquisa, estágio e colaboração em projetos. Respondo em até 48h.",
+  "email": "pedrojos.campos@protonmail.com",
+  "github": "github.com/pedrocampos",
+  "linkedin": "linkedin.com/in/pedrocampos",
+  "discord": "pedrocampos#0000",
+  "location": "Juiz de Fora, MG - Brasil"
 }

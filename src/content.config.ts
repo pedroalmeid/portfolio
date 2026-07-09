@@ -97,9 +97,13 @@ const info = defineCollection({
     // Contact Schema
     z.object({
       schemaType: z.literal('contact'),
-      email: z.string().email(),
-      github: z.string().url(),
-      linkedin: z.string().url(),
+      title: z.string(),
+      description: z.string(),
+      email: z.string(),
+      github: z.string(),
+      linkedin: z.string(),
+      discord: z.string(),
+      location: z.string(),
     }),
   ]),
 });

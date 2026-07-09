@@ -1,127 +1,99 @@
 ---
 import BaseLayout from '../components/astro/BaseLayout.astro';
 import { getEntry } from 'astro:content';
+import { Mail, MessageSquare, MapPin } from '@lucide/astro';
 
 const contactEntry = await getEntry('info', 'contact');
 if (!contactEntry || contactEntry.data.schemaType !== 'contact') {
   throw new Error('Falha ao carregar dados de contato (contact.json).');
 }
 
-const { email, github, linkedin } = contactEntry.data;
+const { title, description, email, github, linkedin, discord, location } = contactEntry.data;
 ---
 
-<BaseLayout title="Fale Comigo | Daniel Silva" description="Entre em contato com Daniel Silva para parcerias, consultorias ou discussões técnicas.">
-  <div class="space-y-12">
-    <!-- Header -->
+<BaseLayout title={`${title} | Pedro José`} description={description}>
+  <div class="space-y-8 max-w-2xl">
+    
+    <!-- Header Section -->
     <div class="space-y-4">
-      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight">
-        Fale <span class="gradient-text">Comigo</span>
+      <span class="c-section-label">Contato</span>
+      
+      <h1 class="font-extrabold text-text-primary text-[2.5rem] leading-[1.15] tracking-tight">
+        {title}
       </h1>
-      <p class="text-slate-400 text-base sm:text-lg max-w-2xl font-light">
-        Interessado em arquiteturas estáticas de alta performance ou consultorias técnicas? Entre em contato preenchendo o formulário ou através das redes.
+      
+      <p class="text-text-secondary text-sm leading-relaxed">
+        {description}
       </p>
     </div>
 
-    <!-- Main Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-5 gap-8 items-start">
-      <!-- Info Cards (2/5 size) -->
-      <div class="md:col-span-2 space-y-6">
-        <!-- Direct Email -->
-        <div class="p-6 rounded-2xl glass">
-          <h2 class="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-2">E-mail Direto</h2>
-          <a href={`mailto:${email}`} class="text-lg font-bold text-white hover:text-brand-cyan transition-colors break-all">
-            {email}
-          </a>
+    <!-- Contact List (Simple vertical format matching prototype) -->
+    <div class="flex flex-col gap-4 pt-4">
+      
+      <!-- Email -->
+      <div class="flex items-center space-x-3.5">
+        <div class="w-7 h-7 flex items-center justify-center rounded-full border border-border bg-[#fafafa] text-text-secondary select-none">
+          <Mail class="w-3.5 h-3.5" />
         </div>
-
-        <!-- Social Media Links -->
-        <div class="p-6 rounded-2xl glass space-y-4">
-          <h2 class="text-sm font-semibold uppercase tracking-wider text-slate-400">Redes Sociais</h2>
-          
-          <div class="flex flex-col space-y-3">
-            <a 
-              href={github} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              class="flex items-center space-x-3 text-slate-300 hover:text-white transition-colors"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-              </svg>
-              <span class="font-medium text-sm">GitHub</span>
-            </a>
-            
-            <a 
-              href={linkedin} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              class="flex items-center space-x-3 text-slate-300 hover:text-white transition-colors"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-              </svg>
-              <span class="font-medium text-sm">LinkedIn</span>
-            </a>
-          </div>
-        </div>
+        <a href={`mailto:${email}`} class="text-sm text-text-secondary hover:text-accent transition-colors">
+          {email}
+        </a>
       </div>
 
-      <!-- Contact Form (3/5 size) -->
-      <form class="md:col-span-3 p-8 rounded-2xl glass space-y-6" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso! (Demonstração)');">
-        <h2 class="text-xl font-bold text-white mb-2">Envie uma Mensagem</h2>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div class="space-y-2">
-            <label for="name" class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Nome</label>
-            <input 
-              type="text" 
-              id="name" 
-              required 
-              class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-brand-cyan transition-colors"
-              placeholder="Seu nome"
-            />
-          </div>
-          <div class="space-y-2">
-            <label for="form-email" class="text-xs font-semibold text-slate-300 uppercase tracking-wider">E-mail</label>
-            <input 
-              type="email" 
-              id="form-email" 
-              required 
-              class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-brand-cyan transition-colors"
-              placeholder="seu.email@exemplo.com"
-            />
-          </div>
+      <!-- GitHub -->
+      <div class="flex items-center space-x-3.5">
+        <div class="w-7 h-7 flex items-center justify-center rounded-full border border-border bg-[#fafafa] text-text-secondary select-none">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+          </svg>
         </div>
-
-        <div class="space-y-2">
-          <label for="subject" class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Assunto</label>
-          <input 
-            type="text" 
-            id="subject" 
-            required 
-            class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-brand-cyan transition-colors"
-            placeholder="Assunto do contato"
-          />
-        </div>
-
-        <div class="space-y-2">
-          <label for="message" class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Mensagem</label>
-          <textarea 
-            id="message" 
-            rows="5" 
-            required 
-            class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-brand-cyan transition-colors resize-none"
-            placeholder="Escreva sua mensagem aqui..."
-          ></textarea>
-        </div>
-
-        <button 
-          type="submit" 
-          class="w-full py-3 rounded-lg text-sm font-semibold bg-linear-to-r from-brand-purple to-brand-cyan text-white hover:opacity-90 active:scale-[0.98] transition-all cursor-pointer"
+        <a 
+          href={`https://${github}`} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="text-sm text-text-secondary hover:text-accent transition-colors"
         >
-          Enviar Mensagem
-        </button>
-      </form>
+          {github}
+        </a>
+      </div>
+
+      <!-- LinkedIn -->
+      <div class="flex items-center space-x-3.5">
+        <div class="w-7 h-7 flex items-center justify-center rounded-full border border-border bg-[#fafafa] text-text-secondary select-none">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd" />
+          </svg>
+        </div>
+        <a 
+          href={`https://${linkedin}`} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="text-sm text-text-secondary hover:text-accent transition-colors"
+        >
+          {linkedin}
+        </a>
+      </div>
+
+      <!-- Discord -->
+      <div class="flex items-center space-x-3.5">
+        <div class="w-7 h-7 flex items-center justify-center rounded-full border border-border bg-[#fafafa] text-text-secondary select-none">
+          <MessageSquare class="w-3.5 h-3.5" />
+        </div>
+        <span class="text-sm text-text-secondary select-all">
+          {discord}
+        </span>
+      </div>
+
+      <!-- Location -->
+      <div class="flex items-center space-x-3.5">
+        <div class="w-7 h-7 flex items-center justify-center rounded-full border border-border bg-[#fafafa] text-text-secondary select-none">
+          <MapPin class="w-3.5 h-3.5" />
+        </div>
+        <span class="text-sm text-text-secondary">
+          {location}
+        </span>
+      </div>
+
     </div>
   </div>
 </BaseLayout>
