@@ -1,0 +1,104 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../components/astro/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const cases = await getCollection('cases');
+  return cases.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'cases'>;
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+// Format date helper
+const formatDate = (date: Date) => {
+  return new Intl.DateTimeFormat('pt-BR', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric'
+  }).format(date);
+};
+---
+
+<BaseLayout title={`${entry.data.title} | Caso de Estudo`} description={entry.data.description}>
+  <article class="space-y-8 max-w-3xl mx-auto">
+    <!-- Meta details -->
+    <div class="space-y-4 text-center sm:text-left">
+      <a href="/projetos" class="text-sm font-semibold text-brand-cyan hover:underline inline-flex items-center space-x-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        <span>Voltar para Projetos</span>
+      </a>
+
+      <div class="flex items-center justify-center sm:justify-start space-x-3 text-xs text-slate-400">
+        <span>{formatDate(entry.data.date)}</span>
+        <span>•</span>
+        <span>Caso de Estudo</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+        {entry.data.title}
+      </h1>
+
+      <p class="text-lg text-slate-300 font-light leading-relaxed">
+        {entry.data.description}
+      </p>
+
+      <div class="flex flex-wrap gap-2 justify-center sm:justify-start pt-2">
+        {entry.data.techStack.map((tech) => (
+          <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-slate-300">
+            {tech}
+          </span>
+        ))}
+      </div>
+
+      {entry.data.repository && (
+        <div class="pt-4 flex justify-center sm:justify-start">
+          <a 
+            href={entry.data.repository} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="px-5 py-2 rounded-full text-sm font-semibold glass glass-hover text-white flex items-center space-x-2"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+              <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+            </svg>
+            <span>Ver Repositório no GitHub</span>
+          </a>
+        </div>
+      )}
+    </div>
+
+    <!-- Article Content -->
+    <div class="prose prose-invert max-w-none pt-8 border-t border-white/5 text-slate-300 leading-relaxed space-y-6">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+
+<style is:global>
+  /* Base styles for markdown rendered text */
+  .prose h1, .prose h2, .prose h3, .prose h4 {
+    color: #ffffff;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+  .prose h1 { font-size: 1.875rem; }
+  .prose h2 { font-size: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 0.25rem; }
+  .prose h3 { font-size: 1.25rem; }
+  .prose p { margin-bottom: 1.25rem; }
+  .prose ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; }
+  .prose li { margin-bottom: 0.5rem; }
+  .prose a { color: #00f2fe; text-decoration: underline; }
+  .prose a:hover { color: #4facfe; }
+</style>

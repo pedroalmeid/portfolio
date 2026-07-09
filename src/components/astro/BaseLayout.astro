@@ -1,0 +1,108 @@
+---
+import '../../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "Daniel Silva | Engenheiro de Software Sênior", 
+  description = "Portfólio de engenharia de software de alta performance especializado em arquiteturas estáticas, Svelte e Tailwind CSS." 
+} = Astro.props;
+
+// Get current path for active links
+const pathname = Astro.url.pathname;
+const cleanPath = pathname.replace(/\/$/, "");
+
+const navItems = [
+  { href: "/", label: "Início" },
+  { href: "/projetos", label: "Projetos" },
+  { href: "/papers", label: "Papers" },
+  { href: "/cv", label: "Currículo" },
+  { href: "/contato", label: "Contato" },
+];
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="flex flex-col min-h-screen antialiased">
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 w-full px-6 py-4">
+      <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-3 rounded-full glass border border-border-glass shadow-lg shadow-[rgba(0,0,0,0.3)]">
+        <a href="/" class="flex items-center space-x-2 text-xl font-bold tracking-tight">
+          <span class="gradient-text">Daniel.Silva</span>
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <ul class="hidden md:flex items-center space-x-8 text-sm font-medium">
+          {navItems.map((item) => {
+            const isActive = cleanPath === item.href.replace(/\/$/, "");
+            return (
+              <li>
+                <a 
+                  href={item.href}
+                  class={`transition-colors duration-300 hover:text-brand-cyan ${isActive ? 'text-brand-cyan font-semibold border-b-2 border-brand-cyan/50 pb-0.5' : 'text-slate-300'}`}
+                >
+                  {item.label}
+                </a>
+              </li>
+            )
+          })}
+        </ul>
+
+        <!-- Right Side CTA/Github Link -->
+        <div class="flex items-center space-x-4">
+          <a 
+            href="https://github.com/exemplo" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="hidden sm:inline-flex px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider glass glass-hover text-white items-center space-x-1.5"
+            id="nav-github-link"
+          >
+            <span>GitHub</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+              <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+            </svg>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="grow max-w-5xl w-full mx-auto px-6 py-8">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-8 border-t border-[rgba(255,255,255,0.05)] mt-16 text-center text-xs text-slate-500">
+      <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
+        <div>
+          <p>© {new Date().getFullYear()} Daniel Silva. Desenvolvido com Astro, Svelte e Tailwind CSS.</p>
+        </div>
+        <div class="flex space-x-6">
+          <a href="/cv" class="hover:text-white transition-colors duration-200">Currículo</a>
+          <a href="/contato" class="hover:text-white transition-colors duration-200">Contato</a>
+          <a href="https://github.com/exemplo" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors duration-200">GitHub</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "schemaType": "projects",
+  "projects": [
+    {
+      "name": "HyperStatic CMS",
+      "description": "Um CMS headless e estático otimizado para gerar páginas web estáticas em menos de 100ms utilizando cache descentralizado.",
+      "url": "https://github.com/exemplo/hyperstatic-cms",
+      "techStack": ["Golang", "SvelteKit", "Tailwind CSS"]
+    },
+    {
+      "name": "GraphQL LightClient",
+      "description": "Um cliente de GraphQL ultra enxuto para dispositivos IoT e conexões de baixa largura de banda.",
+      "url": "https://github.com/exemplo/graphql-lightclient",
+      "techStack": ["Rust", "WebAssembly"]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "schemaType": "papers",
+  "papers": [
+    {
+      "title": "Análise Comparativa de Desempenho e Consumo Energético: Client-side Rendering vs. Static Site Generation",
+      "authors": ["Daniel Silva", "Marta Oliveira"],
+      "journal": "Revista Brasileira de Engenharia de Software",
+      "year": 2024,
+      "link": "https://example.org/papers/static-vs-client.pdf"
+    },
+    {
+      "title": "Optimizing Hydration Costs in Modern JavaScript Frameworks via Island Architectures",
+      "authors": ["Daniel Silva", "Grace Hopper"],
+      "journal": "International Journal of Web Engineering",
+      "year": 2025,
+      "link": "https://example.org/papers/island-architectures.pdf"
+    }
+  ]
+}

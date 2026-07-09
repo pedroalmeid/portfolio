@@ -1,0 +1,29 @@
+{
+  "schemaType": "cv",
+  "education": [
+    {
+      "institution": "Universidade de São Paulo (USP)",
+      "degree": "Bacharelado em Engenharia de Computação",
+      "period": "2018 - 2022"
+    },
+    {
+      "institution": "Instituto de Tecnologia de Massachusetts (MIT)",
+      "degree": "Mestrado em Engenharia de Software de Alta Performance",
+      "period": "2023 - 2025"
+    }
+  ],
+  "experience": [
+    {
+      "company": "TechInnovate Solutions",
+      "role": "Engenheiro de Software Sênior",
+      "period": "2025 - Presente",
+      "description": "Liderança de arquitetura de microsserviços estáticos de alta concorrência e migração de sistemas monolíticos para modelos JAMstack com ganho de 60% em TTFB."
+    },
+    {
+      "company": "Veloce Systems",
+      "role": "Engenheiro de Software Fullstack",
+      "period": "2022 - 2025",
+      "description": "Desenvolvimento de interfaces dinâmicas utilizando Svelte e otimização de bundles webpack/vite. Redução de 40% no tamanho de arquivos JavaScript finais."
+    }
+  ]
+}

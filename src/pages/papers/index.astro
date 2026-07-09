@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../components/astro/BaseLayout.astro';
+import { getEntry } from 'astro:content';
+
+const papersEntry = await getEntry('info', 'papers');
+if (!papersEntry || papersEntry.data.schemaType !== 'papers') {
+  throw new Error('Falha ao carregar dados dos artigos/papers (papers.json).');
+}
+
+const papersList = papersEntry.data.papers;
+---
+
+<BaseLayout title="Artigos & Publicações Científicas | Daniel Silva" description="Publicações acadêmicas e artigos de pesquisa sobre arquiteturas de software estáticas e web moderna.">
+  <div class="space-y-12">
+    <!-- Header -->
+    <div class="space-y-4">
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight">
+        Artigos & <span class="gradient-text">Publicações</span>
+      </h1>
+      <p class="text-slate-400 text-base sm:text-lg max-w-2xl font-light">
+        Pesquisas científicas e estudos técnicos focados em otimização de performance, custos de hidratação JavaScript e arquitetura web.
+      </p>
+    </div>
+
+    <!-- Papers List -->
+    <div class="grid grid-cols-1 gap-6">
+      {papersList.map((paper) => (
+        <div class="p-6 rounded-2xl glass glass-hover flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between text-xs text-brand-cyan font-semibold uppercase tracking-wider">
+              <span>{paper.journal}</span>
+              <span>{paper.year}</span>
+            </div>
+            
+            <h2 class="text-xl sm:text-2xl font-semibold text-white">
+              {paper.title}
+            </h2>
+            
+            <p class="text-slate-400 text-sm">
+              <span class="text-slate-300 font-medium">Autores:</span> {paper.authors.join(', ')}
+            </p>
+          </div>
+
+          {paper.link && (
+            <div class="pt-2">
+              <a 
+                href={paper.link} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="text-xs text-brand-cyan hover:underline inline-flex items-center space-x-1"
+              >
+                <span>Acessar PDF da publicação</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                  <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                </svg>
+              </a>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
