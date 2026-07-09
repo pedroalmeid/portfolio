@@ -19,11 +19,16 @@ const info = defineCollection({
     // CV Schema
     z.object({
       schemaType: z.literal('cv'),
+      name: z.string(),
+      location: z.string(),
+      email: z.string(),
+      summary: z.string(),
       education: z.array(
         z.object({
-          institution: z.string(),
           degree: z.string(),
+          institution: z.string(),
           period: z.string(),
+          details: z.string().optional(),
         })
       ),
       experience: z.array(
@@ -31,7 +36,41 @@ const info = defineCollection({
           company: z.string(),
           role: z.string(),
           period: z.string(),
+          bullets: z.array(z.string()),
+        })
+      ),
+      awards: z.array(
+        z.object({
+          title: z.string(),
+          period: z.string(),
           description: z.string(),
+        })
+      ),
+      certifications: z.array(
+        z.object({
+          title: z.string(),
+          institution: z.string(),
+          description: z.string(),
+          url: z.string().url().optional(),
+        })
+      ),
+      volunteer: z.array(
+        z.object({
+          role: z.string(),
+          period: z.string(),
+          description: z.string(),
+        })
+      ),
+      skills: z.array(
+        z.object({
+          category: z.string(),
+          items: z.array(z.string()),
+        })
+      ),
+      languages: z.array(
+        z.object({
+          name: z.string(),
+          level: z.string(),
         })
       ),
     }),

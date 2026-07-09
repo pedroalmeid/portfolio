@@ -1,29 +1,118 @@
 {
   "schemaType": "cv",
+  "name": "Pedro José Campos de Almeida",
+  "location": "Juiz de Fora, MG, Brasil",
+  "email": "pedrojos.campos@protonmail.com",
+  "summary": "Estudante de Ciência da Computação com sólida atuação técnica, com experiência no desenvolvimento <mark>Full-Stack</mark> de produtos digitais com foco em inovação e em pesquisa aplicada de Data Science, com ênfase em <mark>Inteligência Artificial Explicável (XAI)</mark> e <mark>Inferência Causal</mark>.",
   "education": [
     {
-      "institution": "Universidade de São Paulo (USP)",
-      "degree": "Bacharelado em Engenharia de Computação",
-      "period": "2018 - 2022"
-    },
-    {
-      "institution": "Instituto de Tecnologia de Massachusetts (MIT)",
-      "degree": "Mestrado em Engenharia de Software de Alta Performance",
-      "period": "2023 - 2025"
+      "degree": "Bacharelado em Ciência da Computação",
+      "institution": "Universidade Federal de Juiz de Fora — UFJF",
+      "period": "5º Período",
+      "details": "Previsão de formação: Jul/2028"
     }
   ],
   "experience": [
     {
-      "company": "TechInnovate Solutions",
-      "role": "Engenheiro de Software Sênior",
-      "period": "2025 - Presente",
-      "description": "Liderança de arquitetura de microsserviços estáticos de alta concorrência e migração de sistemas monolíticos para modelos JAMstack com ganho de 60% em TTFB."
+      "company": "CIMO Engenharia e Soluções Ambientais",
+      "role": "Desenvolvedor Full-Stack — Departamento de Inovação",
+      "period": "Dez/2025 — Atual",
+      "bullets": [
+        "Atuação em modelo de intraempreendedorismo, compondo equipe autônoma de estudantes para ideação e desenvolvimento end-to-end de soluções tecnológicas.",
+        "Levantamento, especificação e análise de requisitos. Modelagem de regras de negócio e de banco de dados.",
+        "Backend escalável em Java (Spring Boot) e microsserviços (Firebase Cloud Functions com Python) com PostgreSQL.",
+        "Integração de Inteligência Artificial via consumo de LLMs (Perplexity API).",
+        "Front-end com SvelteKit. UI Design com Figma."
+      ]
     },
     {
-      "company": "Veloce Systems",
-      "role": "Engenheiro de Software Fullstack",
-      "period": "2022 - 2025",
-      "description": "Desenvolvimento de interfaces dinâmicas utilizando Svelte e otimização de bundles webpack/vite. Redução de 40% no tamanho de arquivos JavaScript finais."
+      "company": "Iniciação Científica em Ciência de Dados",
+      "role": "Bolsista PIBIC CNPq",
+      "period": "Set/2025 — Atual",
+      "bullets": [
+        "Processamento de dados agroclimáticos reais para treinamento de modelos preditivos focados na mitigação de emissões de carbono.",
+        "Aplicação de Inteligência Artificial Explicável (XAI) com SHAP, PDP Plots e ICE para auditoria e validação de modelos de ML.",
+        "Modelagem causal e estatística com grafos e Inferência Causal (DoWhy).",
+        "Autor principal de revisão sistemática publicada na conferência internacional ICEIS 2026."
+      ]
+    },
+    {
+      "company": "Iniciação Científica em IA + Engenharia de Software",
+      "role": "Bolsista BIC UFJF",
+      "period": "Set/2024 — Ago/2025",
+      "bullets": [
+        "Desenvolvimento de backend em Python (FastAPI) para automação na avaliação e seleção de modelos de Classificação (ML) aplicados à IoT.",
+        "Gerenciamento do ciclo de vida de modelos (MLOps) com MLflow para rastreamento de experimentos.",
+        "Integração de fluxos de dados e modelos treinados automaticamente com PyCaret (AutoML)."
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "title": "Apresentação em Conferência Internacional — ICEIS 2026",
+      "period": "2026",
+      "description": "Autor principal de revisão publicada sobre o uso de IA Explicável (XAI) na mitigação de emissões de carbono na agricultura."
+    },
+    {
+      "title": "Prêmio CAPES Talento Universitário (2024)",
+      "period": "2024",
+      "description": "Reconhecimento dado pela CAPES aos primeiros 1000 colocados nacionais em exame de conhecimentos gerais."
+    }
+  ],
+  "certifications": [
+    {
+      "title": "XAI With Python",
+      "institution": "— A Data Odyssey",
+      "description": "Especialização em algoritmos de explicabilidade e auditoria de modelos.",
+      "url": "https://example.org/certificates/xai-python"
+    },
+    {
+      "title": "Machine Learning e Data Science com Python de A a Z",
+      "institution": "— Udemy",
+      "description": "Introdução à ciência de dados e aprendizado de máquina com Python.",
+      "url": "https://example.org/certificates/ml-science"
+    },
+    {
+      "title": "DevOps with Docker",
+      "institution": "— University of Helsinki",
+      "description": "Arquitetura de software, infraestrutura e conteinerização.",
+      "url": "https://example.org/certificates/devops-docker"
+    }
+  ],
+  "volunteer": [
+    {
+      "role": "Coordenador de Comunicação — Projeto Buddy",
+      "period": "2024 — Atual",
+      "description": "Coordenador do departamento de comunicação e design de projeto acadêmico voluntário voltado à internacionalização da UFJF."
+    },
+    {
+      "role": "Diretor de Comitê — Simulações da ONU (MUN)",
+      "period": "2023 — 2024",
+      "description": "Liderança na gestão de eventos de debates para mais de 200 estudantes. Treinamentos de oratória, negociação geopolítica e resolução de conflitos."
+    }
+  ],
+  "skills": [
+    {
+      "category": "SOFTWARE",
+      "items": ["Python", "Java", "SQL", "Svelte", "RESTful API", "Microsserviços"]
+    },
+    {
+      "category": "DADOS & IA",
+      "items": ["Machine Learning", "XAI (SHAP)", "DoWhy", "Pandas", "Scikit-learn", "MLOps"]
+    },
+    {
+      "category": "FERRAMENTAS",
+      "items": ["Git", "Docker", "FastAPI", "MLflow", "PostgreSQL", "Firebase", "Figma"]
+    }
+  ],
+  "languages": [
+    {
+      "name": "Português (BR)",
+      "level": "Nativo"
+    },
+    {
+      "name": "Inglês",
+      "level": "Leitura avançada - Escrita e fala intermediária"
     }
   ]
 }

@@ -1,104 +1,235 @@
 ---
 import BaseLayout from '../components/astro/BaseLayout.astro';
 import { getEntry } from 'astro:content';
+import { Download, ExternalLink } from '@lucide/astro';
 
 const cvEntry = await getEntry('info', 'cv');
 if (!cvEntry || cvEntry.data.schemaType !== 'cv') {
   throw new Error('Falha ao carregar dados do currículo (cv.json).');
 }
 
-const { education, experience } = cvEntry.data;
+const { 
+  name, 
+  location, 
+  email, 
+  summary, 
+  education, 
+  experience, 
+  awards, 
+  certifications, 
+  volunteer, 
+  skills, 
+  languages 
+} = cvEntry.data;
 ---
 
-<BaseLayout title="Currículo Profissional | Daniel Silva" description="Trajetória acadêmica e profissional de Daniel Silva, engenheiro de software sênior.">
-  <div class="space-y-12">
-    <!-- Header -->
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-      <div class="space-y-2">
-        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight">
-          Meu <span class="gradient-text">Currículo</span>
+<BaseLayout title={`Currículo | ${name}`} description={`Currículo profissional de ${name}.`}>
+  <div class="space-y-12 max-w-2xl select-text">
+    
+    <!-- Header Section -->
+    <div class="space-y-4">
+      <span class="c-section-label">Currículo</span>
+      
+      <div class="flex items-center justify-between gap-4">
+        <h1 class="font-extrabold text-text-primary text-[2.5rem] leading-[1.15] tracking-tight">
+          {name}
         </h1>
-        <p class="text-slate-400 text-base sm:text-lg max-w-2xl font-light">
-          Uma visão geral da minha trajetória educacional e profissional na construção de sistemas de alto impacto.
-        </p>
+        
+        <a 
+          href="#" 
+          onclick="window.print(); return false;" 
+          class="btn-secondary shrink-0 text-xs py-1.5 px-3 flex items-center select-none"
+        >
+          <Download class="w-3.5 h-3.5 mr-1.5" />
+          <span>PDF</span>
+        </a>
       </div>
-
-      <a 
-        href="#" 
-        onclick="window.print(); return false;" 
-        class="px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider glass glass-hover text-white flex items-center space-x-1.5 self-start sm:self-auto"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
-        </svg>
-        <span>Imprimir / PDF</span>
-      </a>
+      
+      <p class="text-xs text-text-secondary select-none">
+        {location} • {email}
+      </p>
     </div>
 
-    <!-- Layout Grid -->
-    <div class="grid grid-cols-1 gap-12">
-      <!-- Experience Section -->
-      <section class="space-y-6">
-        <h2 class="text-2xl font-bold tracking-tight text-white border-b border-white/5 pb-2 flex items-center space-x-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-          </svg>
-          <span>Experiência Profissional</span>
-        </h2>
-        
-        <div class="space-y-8 relative before:absolute before:top-2 before:bottom-2 before:left-[11px] before:w-[2px] before:bg-white/5">
-          {experience.map((exp) => (
-            <div class="relative pl-8 space-y-2">
-              <!-- Dot Indicator -->
-              <span class="absolute top-2 left-[5px] w-3.5 h-3.5 rounded-full bg-brand-cyan border-4 border-bg-dark shadow-[0_0_10px_rgba(0,242,254,0.5)]"></span>
-              
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                <h3 class="text-lg sm:text-xl font-semibold text-white">
-                  {exp.role} <span class="text-brand-purple">@ {exp.company}</span>
-                </h3>
-                <span class="text-xs sm:text-sm text-slate-400 font-medium">
-                  {exp.period}
-                </span>
-              </div>
-              <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                {exp.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <!-- Education Section -->
-      <section class="space-y-6">
-        <h2 class="text-2xl font-bold tracking-tight text-white border-b border-white/5 pb-2 flex items-center space-x-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-neon-pink" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-          </svg>
-          <span>Formação Acadêmica</span>
-        </h2>
-        
-        <div class="space-y-8 relative before:absolute before:top-2 before:bottom-2 before:left-[11px] before:w-[2px] before:bg-white/5">
-          {education.map((edu) => (
-            <div class="relative pl-8 space-y-1">
-              <!-- Dot Indicator -->
-              <span class="absolute top-2 left-[5px] w-3.5 h-3.5 rounded-full bg-neon-pink border-4 border-bg-dark shadow-[0_0_10px_rgba(244,63,94,0.5)]"></span>
-              
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                <h3 class="text-lg font-semibold text-white">
-                  {edu.degree}
-                </h3>
-                <span class="text-xs sm:text-sm text-slate-400 font-medium">
-                  {edu.period}
-                </span>
-              </div>
-              <p class="text-brand-purple text-sm font-medium">
-                {edu.institution}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+    <!-- Summary / Presentation Box -->
+    <div class="c-card bg-bg-card border border-border p-5 rounded-xl text-sm text-text-secondary leading-relaxed" set:html={summary}>
     </div>
+
+    <!-- Formação Acadêmica Section -->
+    <section class="space-y-6">
+      <h2 class="c-section-label">Formação Acadêmica</h2>
+      
+      <div class="relative pl-6 border-l border-border space-y-6">
+        {education.map((edu) => (
+          <div class="relative space-y-1">
+            <!-- Filled blue dot centered on the line -->
+            <div class="absolute -left-[28.5px] top-1.5 w-2 h-2 rounded-full bg-accent"></div>
+            
+            <div class="flex items-baseline justify-between gap-4">
+              <h3 class="font-bold text-sm text-text-primary">{edu.degree}</h3>
+              <span class="text-xs text-text-secondary shrink-0">{edu.period}</span>
+            </div>
+            
+            <p class="text-xs font-semibold text-accent leading-none">
+              {edu.institution}
+            </p>
+            
+            {edu.details && (
+              <p class="text-xs text-text-secondary pt-0.5">
+                {edu.details}
+              </p>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Experiência Profissional e Acadêmica Section -->
+    <section class="space-y-6">
+      <h2 class="c-section-label">Experiência Profissional e Acadêmica</h2>
+      
+      <div class="relative pl-6 border-l border-border space-y-8">
+        {experience.map((exp) => (
+          <div class="relative space-y-1">
+            <!-- Outlined blue dot centered on the line -->
+            <div class="absolute -left-[28.5px] top-1.5 w-2 h-2 rounded-full border-2 border-accent bg-white"></div>
+            
+            <div class="flex items-baseline justify-between gap-4">
+              <h3 class="font-bold text-sm text-text-primary">{exp.company}</h3>
+              <span class="text-xs text-text-secondary shrink-0">{exp.period}</span>
+            </div>
+            
+            <p class="text-xs font-medium italic text-accent leading-none">
+              {exp.role}
+            </p>
+            
+            <ul class="list-disc pl-4 mt-2 space-y-1.5 text-xs text-text-secondary leading-relaxed">
+              {exp.bullets.map((bullet) => (
+                <li set:html={bullet}></li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Prêmios e Produção Científica Section -->
+    <section class="space-y-6">
+      <h2 class="c-section-label">Prêmios e Produção Científica</h2>
+      
+      <div class="relative pl-6 border-l border-border space-y-6">
+        {awards.map((award) => (
+          <div class="relative space-y-1">
+            <!-- Filled amber dot centered on the line -->
+            <div class="absolute -left-[28.5px] top-1.5 w-2 h-2 rounded-full bg-amber-500"></div>
+            
+            <div class="flex items-baseline justify-between gap-4">
+              <h3 class="font-bold text-sm text-text-primary">{award.title}</h3>
+              <span class="text-xs text-text-secondary shrink-0">{award.period}</span>
+            </div>
+            
+            <p class="text-xs text-text-secondary leading-relaxed">
+              {award.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Cursos e Certificações Section -->
+    <section class="space-y-6">
+      <h2 class="c-section-label">Cursos e Certificações</h2>
+      
+      <div class="relative pl-6 border-l border-border space-y-6">
+        {certifications.map((cert) => (
+          <div class="relative space-y-1">
+            <!-- Outlined gray dot centered on the line -->
+            <div class="absolute -left-[28.5px] top-1.5 w-2 h-2 rounded-full border-2 border-border bg-white"></div>
+            
+            <div>
+              <h3 class="font-bold text-sm text-text-primary inline">{cert.title}</h3>
+              <span class="text-xs text-text-secondary"> {cert.institution}</span>
+            </div>
+            
+            <p class="text-xs text-text-secondary leading-relaxed">
+              {cert.description}
+            </p>
+            
+            {cert.url && (
+              <a 
+                href={cert.url} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="inline-flex items-center text-xs font-medium text-accent hover:underline pt-1 select-none"
+              >
+                <span>Ver certificado</span>
+                <ExternalLink class="h-3 w-3 ml-1" />
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Liderança e Voluntariado Section -->
+    <section class="space-y-6">
+      <h2 class="c-section-label">Liderança e Voluntariado</h2>
+      
+      <div class="relative pl-6 border-l border-border space-y-6">
+        {volunteer.map((vol) => (
+          <div class="relative space-y-1">
+            <!-- Filled gray dot centered on the line -->
+            <div class="absolute -left-[28.5px] top-1.5 w-2 h-2 rounded-full bg-text-secondary/50"></div>
+            
+            <div class="flex items-baseline justify-between gap-4">
+              <h3 class="font-bold text-sm text-text-primary">{vol.role}</h3>
+              <span class="text-xs text-text-secondary shrink-0">{vol.period}</span>
+            </div>
+            
+            <p class="text-xs text-text-secondary leading-relaxed">
+              {vol.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Habilidades Técnicas Section -->
+    <section class="space-y-6">
+      <h2 class="c-section-label">Habilidades Técnicas</h2>
+      
+      <div class="space-y-4">
+        {skills.map((skill) => (
+          <div class="flex items-start">
+            <span class="w-32 text-xs font-semibold uppercase tracking-widest text-text-secondary shrink-0 pt-1 select-none">
+              {skill.category}
+            </span>
+            <div class="flex flex-wrap gap-2">
+              {skill.items.map((item) => (
+                <span class="c-badge select-none">{item}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Idiomas Section -->
+    <section class="space-y-6">
+      <h2 class="c-section-label">Idiomas</h2>
+      
+      <div class="space-y-3">
+        {languages.map((lang) => (
+          <div class="flex items-start">
+            <span class="w-32 text-sm font-bold text-text-primary shrink-0 select-none">
+              {lang.name}
+            </span>
+            <span class="text-sm text-text-secondary">
+              {lang.level}
+            </span>
+          </div>
+        ))}
+      </div>
+    </section>
+
   </div>
 </BaseLayout>
