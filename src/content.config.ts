@@ -91,6 +91,8 @@ const info = defineCollection({
           journal: z.string(),
           year: z.number(),
           link: z.string().url().optional(),
+          badge: z.string().optional(),
+          badgeType: z.enum(['blue', 'gray', 'amber']).optional(),
         })
       ),
     }),

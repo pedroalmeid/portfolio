@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../components/astro/BaseLayout.astro';
+import { getEntry } from 'astro:content';
+
+const papersEntry = await getEntry('info', 'papers');
+if (!papersEntry || papersEntry.data.schemaType !== 'papers') {
+  throw new Error('Falha ao carregar dados dos artigos/papers (papers.json).');
+}
+
+const papersList = papersEntry.data.papers;
+---
+
+<BaseLayout title="Publicações | Pedro José" description="Artigos em conferências e periódicos nacionais da área de Ciência da Computação.">
+  <div class="space-y-8 max-w-2xl">
+    
+    <!-- Header Section -->
+    <div class="space-y-4">
+      <span class="c-section-label">Publicações</span>
+      
+      <h1 class="font-extrabold text-text-primary text-[2.5rem] leading-[1.15] tracking-tight">
+        Trabalhos publicados
+      </h1>
+      
+      <p class="text-text-secondary text-sm leading-relaxed">
+        Artigos em conferências e periódicos nacionais da área de Ciência da Computação.
+      </p>
+    </div>
+
+    <!-- Papers List (Plain layout separated by borders, matching Figma) -->
+    <div class="divide-y divide-border space-y-6 [&>*:not(:first-child)]:pt-6 pt-4">
+      {papersList.map((paper) => (
+        <div class="space-y-2 pb-6">
+          
+          <!-- Badge and Year Header -->
+          <div class="flex items-center justify-between">
+            {paper.badge && (
+              <span class={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold ${
+                paper.badgeType === 'blue' 
+                  ? 'bg-blue-50 border border-blue-100 text-accent' 
+                  : paper.badgeType === 'amber'
+                  ? 'bg-amber-50 border border-amber-200 text-amber-700'
+                  : 'bg-white border border-border text-text-secondary'
+              }`}>
+                {paper.badge}
+              </span>
+            )}
+            <span class="text-xs text-text-secondary">{paper.year}</span>
+          </div>
+
+          <!-- Paper Title -->
+          <h3 class="text-base font-bold text-text-primary">
+            {paper.link ? (
+              <a 
+                href={paper.link} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="hover:text-accent transition-colors"
+              >
+                {paper.title}
+              </a>
+            ) : (
+              paper.title
+            )}
+          </h3>
+
+          <!-- Meta Information -->
+          <div class="space-y-1">
+            <p class="text-xs text-text-secondary font-medium">
+              {paper.journal}
+            </p>
+            <p class="text-xs text-text-secondary/80">
+              {paper.authors.join(', ')}
+            </p>
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</BaseLayout>
