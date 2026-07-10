@@ -8,8 +8,8 @@
     {
       "degree": "Bacharelado em Ciência da Computação",
       "institution": "Universidade Federal de Juiz de Fora — UFJF",
-      "period": "5º Período",
-      "details": "Previsão de formação: Jul/2028"
+      "period": "6º Período",
+      "details": "Previsão de formação: 2028"
     }
   ],
   "experience": [
@@ -20,9 +20,10 @@
       "bullets": [
         "Atuação em modelo de intraempreendedorismo, compondo equipe autônoma de estudantes para ideação e desenvolvimento end-to-end de soluções tecnológicas.",
         "Levantamento, especificação e análise de requisitos. Modelagem de regras de negócio e de banco de dados.",
-        "Backend escalável em Java (Spring Boot) e microsserviços (Firebase Cloud Functions com Python) com PostgreSQL.",
+        "Desenvolvimento de Backend em Java (Spring Boot) e microsserviços (Firebase Cloud Functions com Python), com banco PostgreSQL.",
         "Integração de Inteligência Artificial via consumo de LLMs (Perplexity API).",
-        "Front-end com SvelteKit. UI Design com Figma."
+        "Desenvolvimento de Front-end com SvelteKit e UI Design com Figma.",
+        "Desenvolvimento acelerado por IA"
       ]
     },
     {
@@ -51,7 +52,7 @@
     {
       "title": "Apresentação em Conferência Internacional — ICEIS 2026",
       "period": "2026",
-      "description": "Autor principal de revisão publicada sobre o uso de IA Explicável (XAI) na mitigação de emissões de carbono na agricultura."
+      "description": "Autor principal de revisão publicada sobre o uso de IA Explicável (XAI) na mitigação de emissões de carbono na agricultura na conferência internacional de sistemas de informação empresariais."
     },
     {
       "title": "Prêmio CAPES Talento Universitário (2024)",
@@ -63,38 +64,38 @@
     {
       "title": "XAI With Python",
       "institution": "— A Data Odyssey",
-      "description": "Especialização em algoritmos de explicabilidade e auditoria de modelos.",
-      "url": "https://example.org/certificates/xai-python"
-    },
-    {
-      "title": "Machine Learning e Data Science com Python de A a Z",
-      "institution": "— Udemy",
-      "description": "Introdução à ciência de dados e aprendizado de máquina com Python.",
-      "url": "https://example.org/certificates/ml-science"
+      "description": "Especialização em algoritmos de explicabilidade e auditoria de modelos com Python. Foco em PDP's, ICE, PFI, SHAP e LIME.",
+      "url": "https://adataodyssey.com/courses/xai-with-python/"
     },
     {
       "title": "DevOps with Docker",
       "institution": "— University of Helsinki",
-      "description": "Arquitetura de software, infraestrutura e conteinerização.",
-      "url": "https://example.org/certificates/devops-docker"
+      "description": "Introdução à DevOps, infraestrutura e conteinerização com Docker, otimização de containers, CI/CD com GitHub Actions. Curso internacional com exercícios validados pela universidade.",
+      "url": "https://courses.mooc.fi/certificates/validate/t82337q9y53qfkm"
+    },
+    {
+      "title": "Machine Learning e Data Science com Python de A a Z",
+      "institution": "— IA Expert Academy | Udemy",
+      "description": "Introdução à ciência de dados e aprendizado de máquina com Python.",
+      "url": "https://www.udemy.com/certificate/UC-a75d9630-1d09-43c6-b9c7-6b515d599b09/"
     }
   ],
   "volunteer": [
     {
       "role": "Coordenador de Comunicação — Projeto Buddy",
-      "period": "2024 — Atual",
-      "description": "Coordenador do departamento de comunicação e design de projeto acadêmico voluntário voltado à internacionalização da UFJF."
+      "period": "Jun 2026 — Atual",
+      "description": "Coordenador do departamento de comunicação e design do projeto acadêmico voluntário voltado à internacionalização da Universidade Federal de Juiz de Fora. Fortalecimento do inglês e na comunicação institucional, além de integrar uma estrutura de demanadas, responsabilidades, e feedback contínuo para setores superiores."
     },
     {
       "role": "Diretor de Comitê — Simulações da ONU (MUN)",
-      "period": "2023 — 2024",
-      "description": "Liderança na gestão de eventos de debates para mais de 200 estudantes. Treinamentos de oratória, negociação geopolítica e resolução de conflitos."
+      "period": "2022 — 2024",
+      "description": "Evento de protagonismo estudantil, com liderança na gestão de eventos de debates para mais de 200 estudantes. Fui responsável por dar treinamentos de oratória, negociação geopolítica e resolução de conflitos para os estudantes. Aprendi a lidar com responsabilidades, demandas, comunicação institucional e liderança de pessoas. Além disso, forteleceu muito meu inglês."
     }
   ],
   "skills": [
     {
       "category": "SOFTWARE",
-      "items": ["Python", "Java", "SQL", "Svelte", "RESTful API", "Microsserviços"]
+      "items": ["Python", "Java", "SQL", "Svelte", "JavaScript", "RESTful API"]
     },
     {
       "category": "DADOS & IA",
@@ -102,17 +103,17 @@
     },
     {
       "category": "FERRAMENTAS",
-      "items": ["Git", "Docker", "FastAPI", "MLflow", "PostgreSQL", "Firebase", "Figma"]
+      "items": ["Git", "Docker", "FastAPI", "VSCode DevContainers", "PostgreSQL", "Firebase", "Figma"]
     }
   ],
   "languages": [
     {
       "name": "Português (BR)",
-      "level": "Nativo"
+      "level": "Nativo."
     },
     {
       "name": "Inglês",
-      "level": "Leitura avançada - Escrita e fala intermediária"
+      "level": "Leitura e compreensão avançadas (C2); Escrita e fala intermediária."
     }
   ]
 }

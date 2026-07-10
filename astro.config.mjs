@@ -7,6 +7,11 @@ export default defineConfig({
   server: {
     host: true
   },
+  markdown: {
+    shikiConfig: {
+      theme: 'github-light',
+    },
+  },
   vite: {
     plugins: [tailwindcss()]
   }

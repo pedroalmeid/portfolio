@@ -1,9 +1,9 @@
 {
   "schemaType": "sidebar",
-  "name": "Pedro José Almeida",
+  "name": "Pedro José Campos de Almeida",
   "subtitle": "CS @ UFJF",
   "status": "Aberto a oportunidades",
-  "avatarUrl": "/src/assets/avatar.png",
+  "avatarUrl": "/src/assets/profile.png",
   "socials": [
     {
       "name": "GitHub",
@@ -17,9 +17,9 @@
     },
     {
       "name": "Email",
-      "url": "mailto:pedro.almeida@ufjf.edu.br",
+      "url": "mailto:pedrojos.campos@protonmail.com",
       "icon": "email"
     }
   ],
-  "copyright": "© 2025 Pedro José Campos de Almeida"
+  "copyright": "© 2026 Desenvolvido por Pedro José Campos de Almeida"
 }

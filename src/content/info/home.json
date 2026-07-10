@@ -1,19 +1,19 @@
 {
   "schemaType": "home",
   "heroTitle": "Pedro José Campos de Almeida",
-  "bio": "Estudante de Ciência da Computação na UFJF, pesquisador em <mark>sistemas distribuídos</mark> e apaixonado por <mark>compiladores</mark> e teoria da computação. Construo software que importa — correto, eficiente e bem fundamentado.",
+  "bio": "Olá, meu nome é Pedro e sou estudante de <mark>Ciência da Computação</mark> na UFJF. Gosto de criar coisas que sejam realmente úteis e, mais importante ainda, <mark>fiéis à realidade</mark>. Por isso, hoje estudo <mark>Ciência de Dados e Desenvolvimento de Software</mark> com muito prazer. Procuro minha primeira oportunidade no mercado e reuni minhas melhores experiências aqui neste <mark>portfólio :)</mark>",
   "contactBtnText": "Falar comigo",
   "cvBtnText": "Currículo PDF",
   "highlights": [
     {
       "type": "project",
-      "id": "compilador-minic"
+      "id": "worldcup-predictor"
     },
     {
       "type": "paper",
-      "id": "otimizacao-consultas-grafos"
+      "id": "xai-agriculture-review"
     }
   ],
   "aboutTitle": "Sobre",
-  "aboutText": "Atualmente no 5º período da graduação em Ciência da Computação na <strong>UFJF</strong>, com foco em desenvolvimento Full-Stack e pesquisa aplicada em Data Science. Minha IC investiga <mark>IA Explicável (XAI)</mark> e <mark>Inferência Causal</mark> aplicadas à agricultura.<br><br>Atuo como desenvolvedor Full-Stack na <strong>CIMO Engenharia e Soluções Ambientais</strong> em modelo de intraempreendedorismo, construindo produtos digitais do zero. Tenho interesse particular em <mark>Python</mark> e <mark>Java</mark> para sistemas de produção."
+  "aboutText": "Estudante do curso de Bacharelado de Ciência da Computação Integral pela Universidade Federal de Juiz de Fora (UFJF), atualmente no 6º período. Sempre fui interessado por inovação e conhecimento e, atualmente, ocupo cargo de pesquisador bolsista de Iniciação Científica na área de Ciência de Dados há mais de um ano. Durante o projeto, trabalhei com Engenharia de Software na área de IA, no ramo de pesquisa 'Arquiteturas Autoadaptativas de Software e Inteligência Artificial para a Internet das Coisas'. Atualmente, trabalho com a utilização de análise e ciência de dados para suporte à tomada de decisão estratégica em cenários ambientais, sob o ramo 'Geração de conhecimento para mitigar emissão de carbono na agricultura'. Nesse contexto, tenho manipulado ferramentas de Explainable AI (xAI) e de Inferência Causal.  Além da base técnica em computação, trago experiência em liderança e gestão de projetos desenvolvida em simulações da ONU, o que me permite comunicar resultados técnicos para públicos multidisciplinares com clareza e impacto."
 }

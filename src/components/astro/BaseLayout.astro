@@ -1,7 +1,7 @@
 ---
 import '../../styles/global.css';
 import { getEntry } from 'astro:content';
-import avatarImg from '../../assets/avatar.png';
+import avatarImg from '../../assets/profile.png';
 import { Home, FileText, Briefcase, BookOpen, Send, Mail, Menu } from '@lucide/astro';
 
 interface Props {
@@ -42,7 +42,7 @@ const navItems = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     
     <!-- Primary Meta Tags -->
@@ -58,7 +58,7 @@ const navItems = [
   <body class="min-h-screen bg-white text-text-primary flex flex-col md:flex-row antialiased">
     
     <!-- Mobile Header -->
-    <div class="md:hidden flex items-center justify-between px-6 py-4 border-b border-border bg-[#fafafa] sticky top-0 z-50">
+    <div class="md:hidden flex items-center justify-between px-6 py-4 border-b border-border bg-bg-card sticky top-0 z-50">
       <a href="/" class="flex items-center space-x-3">
         <img src={avatarImg.src} alt={sidebarData.name} class="w-8 h-8 rounded-full border border-border object-cover" />
         <div>
@@ -72,10 +72,10 @@ const navItems = [
     </div>
 
     <!-- Sidebar Backdrop (Mobile overlay) -->
-    <div id="sidebar-backdrop" class="fixed inset-0 bg-[#0a0a0a]/30 z-30 hidden md:hidden"></div>
+    <div id="sidebar-backdrop" class="fixed inset-0 bg-text-primary/30 z-30 hidden md:hidden"></div>
 
     <!-- Sidebar (Global sticky sidebar) -->
-    <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-60 bg-[#fafafa] border-r border-border flex flex-col justify-between p-6 transition-transform -translate-x-full md:translate-x-0 md:sticky md:top-0 md:h-screen overflow-y-auto shrink-0 select-none">
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-60 bg-bg-card border-r border-border flex flex-col justify-between p-6 transition-transform -translate-x-full md:translate-x-0 md:sticky md:top-0 md:h-screen overflow-y-auto shrink-0 select-none">
       
       <!-- Top Section (Avatar and Info) -->
       <div class="space-y-6">
@@ -127,11 +127,12 @@ const navItems = [
         <!-- Social Icons -->
         <div class="flex items-center space-x-4">
           {sidebarData.socials.map((social) => {
+            const isEmail = social.url.startsWith('mailto:');
             return (
               <a 
                 href={social.url} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+                target={isEmail ? undefined : "_blank"} 
+                rel={isEmail ? undefined : "noopener noreferrer"} 
                 class="text-text-secondary hover:text-accent transition-colors"
                 aria-label={social.name}
               >

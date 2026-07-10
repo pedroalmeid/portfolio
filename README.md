@@ -1,14 +1,14 @@
 # Portfólio Estático — Pedro José
 
-Este é o meu repositório de portfólio profissional e acadêmico, concentrando com design simples meu currículo, meus projetos, publicações e dados de contato.
+Este é o meu repositório de portfólio profissional e acadêmico, concentrando meu currículo, meus projetos, publicações e dados de contato com design simples.
 
-O projeto foi construído com uma arquitetura estática moderna focada em performance e simplicidade de alterações, com separação semântica rígida (dados controlados por arquivos JSON e Markdown) entre o layout e o conteúdo frequentemente alterado.
+O projeto foi construído com uma arquitetura de site estático moderna focada em performance e simplicidade de alterações, com separação semântica rígida (dados controlados por arquivos JSON e Markdown) entre o layout e o conteúdo frequentemente alterado.
 
 ---
 
 ## Tecnologias Utilizadas
 
-- **Astro (v7):** Framework para geração de sites estáticos (SSG) rápidos e focados em conteúdo com hidratação nula de JavaScript desnecessário.
+- **Astro (v7):** Framework para geração de sites estáticos (SSG) rápidos e focados em conteúdo com hidratação nula de JavaScript.
 - **Tailwind CSS (v4):** Biblioteca de estilos inline.
 - **@lucide/astro:** Biblioteca oficial de ícones modernos baseada no Lucide para Astro.
 - **TypeScript & Zod:** Validação estrita de todos os dados JSON e Markdown locais em tempo de compilação.

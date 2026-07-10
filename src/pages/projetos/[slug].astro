@@ -2,7 +2,7 @@
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import { getEntry } from 'astro:content';
 import BaseLayout from '../../components/astro/BaseLayout.astro';
-import avatarImg from '../../assets/avatar.png';
+import avatarImg from '../../assets/profile.png';
 
 export async function getStaticPaths() {
   const cases = await getCollection('cases');
@@ -136,29 +136,44 @@ const repositoryUrl = project ? project.url : entry.data.repository;
     font-weight: 700;
     font-size: 1.25rem;
     color: var(--color-text-primary);
+    margin-top: 2.5rem;
     margin-bottom: 1rem;
   }
-  .c-prose h2:not(:first-of-type) {
-    border-top: 1px solid var(--color-border);
-    padding-top: 2rem;
-    margin-top: 2rem;
+  .c-prose h2:first-of-type {
+    margin-top: 0;
   }
-  .c-prose p {
+  .c-prose hr + h2 {
+    margin-top: 0;
+  }
+  .c-prose hr {
+    border: 0;
+    border-top: 1px solid var(--color-border);
+    margin: 2.5rem 0;
+  }
+  .c-prose p, .c-prose ul, .c-prose ol, .c-prose li {
     font-size: 0.875rem;
     color: var(--color-text-secondary);
     line-height: 1.625;
+  }
+  .c-prose p {
     margin-bottom: 1.5rem;
   }
   .c-prose ul {
     list-style-type: disc;
     padding-left: 1.25rem;
     margin-bottom: 1.5rem;
-    font-size: 0.875rem;
-    color: var(--color-text-secondary);
+  }
+  .c-prose ol {
+    list-style-type: decimal;
+    padding-left: 1.25rem;
+    margin-bottom: 1.5rem;
   }
   .c-prose li {
     margin-bottom: 0.5rem;
-    line-height: 1.625;
+  }
+  .c-prose strong, .c-prose b {
+    color: var(--color-text-primary);
+    font-weight: 700;
   }
   .c-prose pre {
     background-color: var(--color-bg-card) !important;

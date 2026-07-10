@@ -2,43 +2,20 @@
   "schemaType": "papers",
   "papers": [
     {
-      "id": "otimizacao-consultas-grafos",
-      "title": "Otimização de Consultas em Grafos de Conhecimento com Aprendizado por Reforço",
+      "id": "xai-agriculture-review",
+      "title": "Explainable AI (XAI) in Decision Support for Mitigating Carbon Emissions in Agriculture: A Systematic Review",
       "authors": [
-        "Pedro José Campos de Almeida",
-        "Carlos Mendes",
-        "Fernanda Lima"
+        "Pedro José C. de Almeida",
+        "Davi Moljo Domingues",
+        "Regina Braga",
+        "José David",
+        "Barbára Quintela"
       ],
-      "journal": "SBBD 2024 — Simpósio Brasileiro de Banco de Dados",
-      "year": 2024,
-      "link": "https://example.org/papers/otimizacao-consultas-grafos.pdf",
-      "badge": "Artigo Completo",
+      "journal": "Proceedings of the 28th International Conference on Enterprise Information Systems - Volume 2: ICEIS",
+      "year": 2026,
+      "link": "https://www.scitepress.org/Link.aspx?doi=10.5220/0015044100004018",
+      "badge": "Revisão Sistemática",
       "badgeType": "blue"
-    },
-    {
-      "id": "deteccao-anomalias-series-temporais",
-      "title": "Detecção de Anomalias em Séries Temporais com Transformers Temporais",
-      "authors": [
-        "Pedro José Campos de Almeida",
-        "Carlos Mendes"
-      ],
-      "journal": "ENIAC 2023 — Encontro Nacional de IA e Computacional",
-      "year": 2023,
-      "link": "https://example.org/papers/deteccao-anomalias-transformers.pdf",
-      "badge": "Artigo Curto",
-      "badgeType": "gray"
-    },
-    {
-      "id": "analise-consenso-distribuido",
-      "title": "Análise Comparativa de Algoritmos de Consenso em Ambientes Geo-distribuídos",
-      "authors": [
-        "Pedro José Campos de Almeida"
-      ],
-      "journal": "Revista de Informática Teórica e Aplicada — Vol. 20",
-      "year": 2023,
-      "link": "https://example.org/papers/consenso-geo-distribuido.pdf",
-      "badge": "Revisão",
-      "badgeType": "amber"
     }
   ]
 }

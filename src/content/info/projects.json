@@ -2,39 +2,13 @@
   "schemaType": "projects",
   "projects": [
     {
-      "id": "compilador-minic",
-      "name": "Compilador MiniC",
-      "description": "Compilador completo para um subconjunto de C: análise léxica, sintática, semântica e geração de código LLVM IR. Suporta funções, ponteiros e arrays.",
-      "url": "https://github.com/pedroalmeid/compilador-minic",
-      "techStack": ["C", "Flex", "Bison", "LLVM"],
-      "year": 2024,
-      "caseSlug": "compilador-minic"
-    },
-    {
-      "id": "raft-consenso-distribuido",
-      "name": "Raft — Consenso Distribuído",
-      "description": "Implementação do protocolo Raft para consenso em sistemas distribuídos. Tolerância a falhas de líder, replicação de log e snapshots.",
-      "url": "https://github.com/pedroalmeid/raft-consensus",
-      "techStack": ["Go", "gRPC", "Docker"],
-      "year": 2024,
-      "caseSlug": "raft-consenso-distribuido"
-    },
-    {
-      "id": "engine-recomendacao",
-      "name": "Engine de Recomendação",
-      "description": "Sistema de recomendação híbrido combinando filtragem colaborativa e content-based para uma plataforma acadêmica com 50k usuários.",
-      "url": "https://github.com/pedroalmeid/recommendation-engine",
-      "techStack": ["Python", "scikit-learn", "FastAPI", "PostgreSQL"],
-      "year": 2023,
-      "caseSlug": "engine-recomendacao"
-    },
-    {
-      "id": "analisador-data-races",
-      "name": "Analisador de Data Races",
-      "description": "Ferramenta de análise estática baseada em LLVM para detecção de condições de corrida em programas C/C++ concorrentes.",
-      "url": "https://github.com/pedroalmeid/data-race-analyzer",
-      "techStack": ["C", "C++", "LLVM"],
-      "year": 2023
+      "id": "worldcup-predictor",
+      "name": "World Cup Causal Predictor",
+      "description": "Modelo preditivo de placares para a Copa do Mundo 2026 com abordagem causal construído do zero",
+      "url": "https://github.com/pedroalmeid/worldcup_predictor",
+      "techStack": ["Python", "Modelo preditivo", "Data Engineering", "Data Science", "DoWhy", "Inferência Causal", "Streamlit"],
+      "year": 2026,
+      "caseSlug": "worldcup-predictor"
     }
   ]
 }

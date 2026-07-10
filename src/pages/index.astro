@@ -13,21 +13,71 @@ const { heroTitle, bio, contactBtnText, cvBtnText, highlights, aboutTitle, about
 // Fetch project cases
 const allCases = await getCollection('cases');
 
+// Fetch projects metadata from projects.json
+const projectsEntry = await getEntry('info', 'projects');
+const allProjects = projectsEntry && projectsEntry.data.schemaType === 'projects' 
+  ? projectsEntry.data.projects 
+  : [];
+
 // Fetch papers
 const papersEntry = await getEntry('info', 'papers');
 const allPapers = papersEntry && papersEntry.data.schemaType === 'papers' ? papersEntry.data.papers : [];
 
+interface ProjectHighlight {
+  type: 'project';
+  data: {
+    id: string;
+    title: string;
+    description: string;
+    techStack: string[];
+    repository?: string;
+    year: string | number;
+  };
+}
+
+interface PaperHighlight {
+  type: 'paper';
+  data: {
+    id?: string;
+    title: string;
+    authors: string[];
+    journal: string;
+    year: number;
+    link?: string;
+    badge?: string;
+    badgeType?: 'blue' | 'gray' | 'amber';
+  };
+}
+
+type HighlightItem = ProjectHighlight | PaperHighlight;
+
 // Resolve highlight items
 const resolvedHighlights = highlights.map(hl => {
   if (hl.type === 'project') {
-    const project = allCases.find(c => c.id === hl.id);
-    return { type: 'project', data: project };
+    const caseEntry = allCases.find(c => c.id === hl.id);
+    if (!caseEntry) return null;
+    const projectMeta = allProjects.find(p => p.caseSlug === caseEntry.id);
+    return {
+      type: 'project',
+      data: {
+        id: caseEntry.id,
+        title: caseEntry.data.title,
+        description: caseEntry.data.description,
+        techStack: projectMeta ? projectMeta.techStack : caseEntry.data.techStack,
+        repository: projectMeta ? projectMeta.url : caseEntry.data.repository,
+        year: projectMeta ? projectMeta.year : (caseEntry.data.date ? new Date(caseEntry.data.date).getFullYear() : '2024'),
+      }
+    } as ProjectHighlight;
   } else if (hl.type === 'paper') {
     const paper = allPapers.find(p => p.id === hl.id);
-    return { type: 'paper', data: paper };
+    if (!paper) return null;
+    return { 
+      type: 'paper', 
+      data: paper 
+    } as PaperHighlight;
   }
   return null;
-}).filter(hl => hl && hl.data);
+}).filter((hl): hl is HighlightItem => hl !== null);
 ---
 
 <BaseLayout title={heroTitle} description="Portfólio acadêmico e profissional de Pedro José Campos de Almeida.">
@@ -50,7 +100,7 @@ const resolvedHighlights = highlights.map(hl => {
           <span>{contactBtnText}</span>
         </a>
         
-        <a href="/cv" class="btn-secondary">
+        <a href="/Curriculo_PedroAlmeida_PTBR.pdf" download class="btn-secondary">
           <Download class="w-4 h-4 mr-2" />
           <span>{cvBtnText}</span>
         </a>
@@ -64,29 +114,28 @@ const resolvedHighlights = highlights.map(hl => {
       <div class="flex flex-col gap-4">
         {resolvedHighlights.map((hl) => {
           if (hl.type === 'project') {
-            const project = hl.data;
-            const projectYear = project.data.date ? new Date(project.data.date).getFullYear() : '2024';
+            const project = hl.data as ProjectHighlight['data'];
             return (
               <div class="c-card flex flex-col justify-between space-y-4">
                 <div class="space-y-3">
                   <!-- Badge & Year -->
                   <div class="flex items-center justify-between">
                     <span class="c-badge">PROJETO</span>
-                    <span class="text-xs text-text-secondary">{projectYear}</span>
+                    <span class="text-xs text-text-secondary">{project.year}</span>
                   </div>
                   
-                  <h3 class="text-base font-bold text-text-primary">{project.data.title}</h3>
+                  <h3 class="text-base font-bold text-text-primary">{project.title}</h3>
                   
                   <p class="text-sm text-text-secondary leading-relaxed">
-                    {project.data.description}
+                    {project.description}
                   </p>
                 </div>
 
                 <div class="space-y-4">
                   <!-- Tech stack tags -->
-                  {project.data.techStack && (
+                  {project.techStack && (
                     <div class="flex flex-wrap gap-2">
-                      {project.data.techStack.map((tech) => (
+                      {project.techStack.map((tech) => (
                         <span class="c-badge">{tech}</span>
                       ))}
                     </div>
@@ -94,9 +143,9 @@ const resolvedHighlights = highlights.map(hl => {
 
                   <!-- Action Mini Buttons -->
                   <div class="flex items-center space-x-2 pt-1">
-                    {project.data.repository && (
+                    {project.repository && (
                       <a 
-                        href={project.data.repository} 
+                        href={project.repository} 
                         target="_blank" 
                         rel="noopener noreferrer" 
                         class="btn-mini-github"
@@ -117,7 +166,7 @@ const resolvedHighlights = highlights.map(hl => {
               </div>
             );
           } else if (hl.type === 'paper') {
-            const paper = hl.data;
+            const paper = hl.data as PaperHighlight['data'];
             return (
               <div class="c-card flex flex-col justify-between space-y-4">
                 <div class="space-y-3">
