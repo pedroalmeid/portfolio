@@ -1,0 +1,52 @@
+name: Deploy do Portfolio para o GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  # Permite rodar o workflow manualmente na aba Actions do GitHub, se precisar
+  workflow_dispatch:
+
+# Permissões seguras necessárias para o GitHub Token criar a página
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Evita que múltiplos deploys rodem ao mesmo tempo e se atropelem
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do Código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+
+      - name: Configurar Páginas do GitHub
+        uses: actions/configure-pages@v5
+
+      - name: Instalar Dependências
+        run: npm ci
+
+      - name: Compilar o Projeto (Astro Build)
+        run: npm run build
+
+      - name: Upload do Artefato Estático
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist # O Astro envia os arquivos HTML puros para a pasta dist
+
+      - name: Deploy para o GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

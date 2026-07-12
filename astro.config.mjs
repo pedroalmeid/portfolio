@@ -4,6 +4,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://pedroalmeid.github.io',
+  base: '/portfolio',
   server: {
     host: true
   },
@@ -14,5 +16,5 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()]
-  }
+  },
 });
