@@ -9,6 +9,15 @@
       "techStack": ["Python", "Modelo preditivo", "Data Engineering", "Data Science", "DoWhy", "Inferência Causal", "Streamlit"],
       "year": 2026,
       "caseSlug": "worldcup-predictor"
+    },
+    {
+      "id": "portfolio",
+      "name": "Este próprio portfólio!",
+      "description": "Portfólio profissional e acadêmico, funcionando de forma extremamente estática, leve e veloz ao pré-compilar conteúdos com Astro, Tailwind CSS e TypeScript",
+      "url": "https://github.com/pedroalmeid/portfolio",
+      "techStack": ["Astro", "Tailwind CSS", "TypeScript", "Zod"],
+      "year": 2026,
+      "caseSlug": "portfolio"
     }
   ]
 }
