@@ -76,7 +76,7 @@ const projectsList = projectsEntry.data.projects;
               
               {project.caseSlug && (
                 <a 
-                  href={`/projetos/${project.caseSlug}`} 
+                  href={`${import.meta.env.BASE_URL}projetos/${project.caseSlug}`} 
                   class="btn-mini-case"
                 >
                   <FileText class="w-3.5 h-3.5 mr-1.5" />

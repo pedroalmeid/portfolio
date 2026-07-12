@@ -35,7 +35,7 @@ const repositoryUrl = project ? project.url : entry.data.repository;
     
     <!-- Breadcrumb Nav -->
     <div class="flex items-center space-x-2 text-xs text-text-secondary select-none mb-6">
-      <a href="/projetos" class="hover:text-accent transition-colors flex items-center">
+      <a href={`${import.meta.env.BASE_URL}projetos`} class="hover:text-accent transition-colors flex items-center">
         <span>&larr; Voltar</span>
       </a>
       <span class="text-border">|</span>
