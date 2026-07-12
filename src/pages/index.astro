@@ -10,6 +10,8 @@ if (!homeEntry || homeEntry.data.schemaType !== 'home') {
 
 const { heroTitle, bio, contactBtnText, cvBtnText, highlights, aboutTitle, aboutText } = homeEntry.data;
 
+const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+
 // Fetch project cases
 const allCases = await getCollection('cases');
 
@@ -95,12 +97,12 @@ const resolvedHighlights = highlights.map(hl => {
 
       <!-- Action Buttons -->
       <div class="flex flex-wrap gap-3 pt-2">
-        <a href={`${import.meta.env.BASE_URL}contato`} class="btn-primary">
+        <a href={`${baseUrl}contato`} class="btn-primary">
           <Mail class="w-4 h-4 mr-2" />
           <span>{contactBtnText}</span>
         </a>
         
-        <a href={`${import.meta.env.BASE_URL}Curriculo_PedroAlmeida_PTBR.pdf`} download class="btn-secondary">
+        <a href={`${baseUrl}Curriculo_PedroAlmeida_PTBR.pdf`} download class="btn-secondary">
           <Download class="w-4 h-4 mr-2" />
           <span>{cvBtnText}</span>
         </a>
@@ -157,7 +159,7 @@ const resolvedHighlights = highlights.map(hl => {
                       </a>
                     )}
                     
-                    <a href={`${import.meta.env.BASE_URL}projetos/${project.id}`} class="btn-mini-case">
+                    <a href={`${baseUrl}projetos/${project.id}`} class="btn-mini-case">
                       <FileText class="w-3.5 h-3.5 mr-1.5" />
                       <span>Ler Caso</span>
                     </a>
@@ -208,12 +210,12 @@ const resolvedHighlights = highlights.map(hl => {
 
       <!-- Navigation Section Buttons -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-        <a href={`${import.meta.env.BASE_URL}projetos`} class="btn-primary w-full">
+        <a href={`${baseUrl}projetos`} class="btn-primary w-full">
           <Briefcase class="w-4 h-4 mr-2" />
           <span>Ver todos os projetos</span>
         </a>
         
-        <a href={`${import.meta.env.BASE_URL}papers`} class="btn-primary w-full">
+        <a href={`${baseUrl}papers`} class="btn-primary w-full">
           <BookOpen class="w-4 h-4 mr-2" />
           <span>Ver todas as publicações</span>
         </a>

@@ -21,6 +21,8 @@ const {
   skills, 
   languages 
 } = cvEntry.data;
+
+const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 ---
 
 <BaseLayout title={`Currículo | ${name}`} description={`Currículo profissional de ${name}.`}>
@@ -36,7 +38,7 @@ const {
         </h1>
         
         <a 
-          href={`${import.meta.env.BASE_URL}Curriculo_PedroAlmeida_PTBR.pdf`} 
+          href={`${baseUrl}Curriculo_PedroAlmeida_PTBR.pdf`} 
           download
           class="btn-secondary shrink-0 text-xs py-1.5 px-3 flex items-center select-none"
         >

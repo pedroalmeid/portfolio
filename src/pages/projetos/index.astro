@@ -10,6 +10,7 @@ if (!projectsEntry || projectsEntry.data.schemaType !== 'projects') {
 }
 
 const projectsList = projectsEntry.data.projects;
+const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 ---
 
 <BaseLayout title="Projetos | Pedro José" description="Projetos acadêmicos, de pesquisa e pessoais de Pedro José Campos de Almeida.">
@@ -76,7 +77,7 @@ const projectsList = projectsEntry.data.projects;
               
               {project.caseSlug && (
                 <a 
-                  href={`${import.meta.env.BASE_URL}projetos/${project.caseSlug}`} 
+                  href={`${baseUrl}projetos/${project.caseSlug}`} 
                   class="btn-mini-case"
                 >
                   <FileText class="w-3.5 h-3.5 mr-1.5" />

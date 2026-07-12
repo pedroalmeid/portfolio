@@ -28,6 +28,7 @@ const project = projectsEntry && projectsEntry.data.schemaType === 'projects'
 const year = project ? project.year : new Date(entry.data.date).getFullYear();
 const techStack = project ? project.techStack : entry.data.techStack;
 const repositoryUrl = project ? project.url : entry.data.repository;
+const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 ---
 
 <BaseLayout title={`${entry.data.title} | Caso de Estudo`} description={entry.data.description} mainClass="mx-auto">
@@ -35,7 +36,7 @@ const repositoryUrl = project ? project.url : entry.data.repository;
     
     <!-- Breadcrumb Nav -->
     <div class="flex items-center space-x-2 text-xs text-text-secondary select-none mb-6">
-      <a href={`${import.meta.env.BASE_URL}projetos`} class="hover:text-accent transition-colors flex items-center">
+      <a href={`${baseUrl}projetos`} class="hover:text-accent transition-colors flex items-center">
         <span>&larr; Voltar</span>
       </a>
       <span class="text-border">|</span>
