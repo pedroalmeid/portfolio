@@ -1,25 +1,51 @@
 {
   "schemaType": "sidebar",
-  "name": "Pedro José Campos de Almeida",
-  "subtitle": "CS @ UFJF",
-  "status": "Aberto a oportunidades",
-  "avatarUrl": "/src/assets/profile.png",
-  "socials": [
-    {
-      "name": "GitHub",
-      "url": "https://github.com/pedroalmeid",
-      "icon": "github"
-    },
-    {
-      "name": "LinkedIn",
-      "url": "https://linkedin.com/in/pedroalmeid",
-      "icon": "linkedin"
-    },
-    {
-      "name": "Email",
-      "url": "mailto:pedrojos.campos@protonmail.com",
-      "icon": "email"
-    }
-  ],
-  "copyright": "© 2026 Desenvolvido por Pedro José Campos de Almeida"
+  "ptbr": {
+    "name": "Pedro José Campos de Almeida",
+    "subtitle": "Ciência da Computação @ UFJF",
+    "status": "Aberto a oportunidades",
+    "avatarUrl": "/src/assets/profile.png",
+    "socials": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/pedroalmeid",
+        "icon": "github"
+      },
+      {
+        "name": "LinkedIn",
+        "url": "https://linkedin.com/in/pedroalmeid",
+        "icon": "linkedin"
+      },
+      {
+        "name": "Email",
+        "url": "mailto:pedrojos.campos@protonmail.com",
+        "icon": "email"
+      }
+    ],
+    "copyright": "© 2026 Desenvolvido por Pedro José Campos de Almeida"
+  },
+  "eng": {
+    "name": "Pedro José Campos de Almeida",
+    "subtitle": "CS @ UFJF",
+    "status": "Open to opportunities",
+    "avatarUrl": "/src/assets/profile.png",
+    "socials": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/pedroalmeid",
+        "icon": "github"
+      },
+      {
+        "name": "LinkedIn",
+        "url": "https://linkedin.com/in/pedroalmeid",
+        "icon": "linkedin"
+      },
+      {
+        "name": "Email",
+        "url": "mailto:pedrojos.campos@protonmail.com",
+        "icon": "email"
+      }
+    ],
+    "copyright": "© 2026 Developed by Pedro José Campos de Almeida"
+  }
 }

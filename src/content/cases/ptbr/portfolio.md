@@ -41,14 +41,24 @@ O portfólio adota uma estrutura modular onde o conteúdo é separado do layout:
 /src/
 ├── content/
 │   ├── config.ts       # Esquemas de validação Zod para cases e info
-│   ├── cases/          # Casos de estudo em Markdown (como este)
-│   └── info/           # Dados das páginas estruturados em JSON
+│   ├── cases/          # Casos de estudo em Markdown por idioma
+│   │   ├── ptbr/       # Versões em Português (BR)
+│   │   └── eng/        # Versões em Inglês (US)
+│   └── info/           # Dados das páginas estruturados em JSON (com chaves ptbr e eng)
 ├── components/
-│   └── astro/          # Componentes de layout (BaseLayout, Sidebar, etc.)
+│   └── astro/          # Componentes de layout (BaseLayout com switcher de idioma)
 └── pages/              # Páginas e rotas dinâmicas do portfólio
+    ├── index.astro     # Script de redirecionamento de idioma no primeiro acesso
+    └── [lang]/         # Rotas parametrizadas (ex: /ptbr/projects, /eng/projects)
 ```
 
 Essa separação garante que, para adicionar um novo projeto, atualizar o currículo ou alterar um contato, basta modificar um arquivo JSON ou Markdown correspondente na pasta `src/content/`.
+
+---
+
+## 🌐 Internacionalização (i18n)
+
+O website possui suporte completo e consistente em duas línguas: **Português (BR)** e **Inglês (US)**. O idioma do site é detectado automaticamente no primeiro acesso com base no navegador do visitante, podendo ser alterado a qualquer momento pelo seletor posicionado na barra lateral do portfólio. A escolha do usuário é salva no `localStorage` para persistência.
 
 ---
 

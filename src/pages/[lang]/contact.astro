@@ -1,22 +1,32 @@
 ---
-import BaseLayout from '../components/astro/BaseLayout.astro';
+import BaseLayout from '../../components/astro/BaseLayout.astro';
 import { getEntry } from 'astro:content';
-import { Mail, MessageSquare, MapPin } from '@lucide/astro';
+import { Mail, MapPin } from '@lucide/astro';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'ptbr' } },
+    { params: { lang: 'eng' } }
+  ];
+}
+
+const { lang } = Astro.params;
+const isEng = lang === 'eng';
 
 const contactEntry = await getEntry('info', 'contact');
 if (!contactEntry || contactEntry.data.schemaType !== 'contact') {
   throw new Error('Falha ao carregar dados de contato (contact.json).');
 }
 
-const { title, description, email, github, linkedin, discord, location } = contactEntry.data;
+const { title, description, email, github, linkedin, discord, location } = contactEntry.data[lang as 'ptbr' | 'eng'];
 ---
 
-<BaseLayout title={`${title} | Pedro José`} description={description}>
+<BaseLayout lang={lang} title={`${title} | Pedro José`} description={description}>
   <div class="space-y-8 max-w-2xl">
     
     <!-- Header Section -->
     <div class="space-y-4">
-      <span class="c-section-label">Contato</span>
+      <span class="c-section-label">{isEng ? "Contact" : "Contato"}</span>
       
       <h1 class="font-extrabold text-text-primary text-[2.5rem] leading-[1.15] tracking-tight">
         {title}

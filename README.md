@@ -26,23 +26,37 @@ O projeto foi construído com uma arquitetura de site estático moderna focada e
 │   ├── content/
 │   │   ├── config.ts       # Esquemas de validação Zod (cases e info)
 │   │   ├── cases/          # Casos de estudo em Markdown
-│   │   └── info/           # Dados das páginas em JSON
+│   │   │   ├── ptbr/       # Casos de estudo em português
+│   │   │   └── eng/        # Casos de estudo em inglês
+│   │   └── info/           # Dados de página em JSON (com campos ptbr e eng)
 │   ├── components/
-│   │   └── astro/          # Componentes estruturais e BaseLayout
+│   │   └── astro/          # Componente BaseLayout (contendo o switcher de idioma)
 │   ├── pages/
-│   │   ├── index.astro     # Início (Hero + Sobre)
-│   │   ├── cv.astro        # Currículo com timeline
-│   │   ├── papers.astro    # Publicações científicas e artigos
-│   │   ├── contato.astro   # Lista minimalista de contatos
-│   │   └── projetos/
-│   │       ├── index.astro # Listagem unificada de projetos
-│   │       └── [slug].astro# Casos de estudo detalhados renderizados pelos arquivos md's
+│   │   ├── index.astro     # Script de redirecionamento automático por idioma
+│   │   └── [lang]/         # Rotas dinâmicas do portfólio ([lang] = ptbr | eng)
+│   │       ├── index.astro # Início (Hero + Sobre)
+│   │       ├── cv.astro    # Currículo com timeline
+│   │       ├── papers.astro# Publicações científicas e artigos
+│   │       ├── contact.astro # Lista minimalista de contatos
+│   │       └── projects/
+│   │           ├── index.astro # Listagem unificada de projetos
+│   │           └── [slug].astro# Casos de estudo detalhados
 │   └── styles/
 │       └── global.css      # Configuração global de temas e CSS
 ├── astro.config.mjs        # Configurações do Astro
 ├── package.json            # Scripts e dependências npm
 └── README.md               # Documentação principal
 ```
+
+---
+
+## 🌐 Internacionalização (i18n)
+
+Este portfólio é totalmente internacionalizado, oferecendo suporte nativo tanto para **Português (PT-BR)** quanto para **Inglês (EN-US)**. 
+
+- **Detecção Automática:** Ao acessar o site pela primeira vez, um script client-side analisa o idioma do navegador do usuário (`navigator.language`). Se for português, ele abre em `/ptbr/`; caso contrário (ou se for diferente de pt-br/inglês), ele abre por padrão em `/eng/`.
+- **Alternador de Idiomas (Switcher):** Localizado na barra lateral, permite a troca rápida de idioma. A seleção é salva no `localStorage` do navegador para persistência nas próximas visitas do usuário.
+- **Estrutura de Conteúdo Separada:** Os textos dinâmicos do site ficam organizados em campos `ptbr` e `eng` em arquivos JSON e em subpastas correspondentes nos arquivos Markdown.
 
 ---
 

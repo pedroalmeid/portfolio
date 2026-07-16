@@ -1,29 +1,38 @@
 ---
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import { getEntry } from 'astro:content';
-import BaseLayout from '../../components/astro/BaseLayout.astro';
-import avatarImg from '../../assets/profile.png';
+import BaseLayout from '../../../components/astro/BaseLayout.astro';
+import avatarImg from '../../../assets/profile.png';
+import { Mail } from '@lucide/astro';
 
 export async function getStaticPaths() {
   const cases = await getCollection('cases');
-  return cases.map((entry) => ({
-    params: { slug: entry.id },
-    props: { entry },
-  }));
+  return cases.map((entry) => {
+    const parts = entry.id.split('/');
+    const lang = parts[0]; // 'ptbr' or 'eng'
+    const slug = parts.slice(1).join('/'); // e.g. 'portfolio' or 'worldcup-predictor'
+    return {
+      params: { lang, slug },
+      props: { entry },
+    };
+  });
 }
 
 interface Props {
   entry: CollectionEntry<'cases'>;
 }
 
+const { lang, slug } = Astro.params;
+const isEng = lang === 'eng';
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 
 // Fetch matching project metadata from projects.json
 const projectsEntry = await getEntry('info', 'projects');
-const project = projectsEntry && projectsEntry.data.schemaType === 'projects'
-  ? projectsEntry.data.projects.find((p) => p.caseSlug === entry.id)
-  : null;
+const localizedProjects = projectsEntry && projectsEntry.data.schemaType === 'projects'
+  ? projectsEntry.data[lang as 'ptbr' | 'eng'].projects
+  : [];
+const project = localizedProjects.find((p) => p.caseSlug === slug);
 
 const year = project ? project.year : new Date(entry.data.date).getFullYear();
 const techStack = project ? project.techStack : entry.data.techStack;
@@ -31,13 +40,13 @@ const repositoryUrl = project ? project.url : entry.data.repository;
 const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 ---
 
-<BaseLayout title={`${entry.data.title} | Caso de Estudo`} description={entry.data.description} mainClass="mx-auto">
+<BaseLayout lang={lang as 'ptbr' | 'eng'} title={`${entry.data.title} | ${isEng ? "Case Study" : "Caso de Estudo"}`} description={entry.data.description} mainClass="mx-auto">
   <article class="space-y-6 max-w-2xl">
     
     <!-- Breadcrumb Nav -->
     <div class="flex items-center space-x-2 text-xs text-text-secondary select-none mb-6">
-      <a href={`${baseUrl}projetos`} class="hover:text-accent transition-colors flex items-center">
-        <span>&larr; Voltar</span>
+      <a href={`${baseUrl}${lang}/projects`} class="hover:text-accent transition-colors flex items-center">
+        <span>{isEng ? "← Back" : "← Voltar"}</span>
       </a>
       <span class="text-border">|</span>
       <span>{entry.data.title}</span>
@@ -81,6 +90,14 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
     <!-- Article Content -->
     <div class="c-prose">
       <Content />
+    </div>
+
+    <!-- Contact Call to Action -->
+    <div class="pt-12 pb-4 select-none flex justify-center border-t border-border mt-12">
+      <a href={`${baseUrl}${lang}/contact`} class="btn-primary inline-flex items-center px-6 py-2.5">
+        <Mail class="w-4 h-4 mr-2" />
+        <span>{isEng ? "Get in touch" : "Entrar em contato"}</span>
+      </a>
     </div>
 
   </article>
@@ -146,6 +163,48 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
   .c-prose hr + h2 {
     margin-top: 0;
   }
+
+  /* Sub-headings (h3) */
+  .c-prose h3 {
+    font-weight: 700;
+    font-size: 1.0625rem;
+    color: var(--color-text-primary);
+    margin-top: 2.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Table styles */
+  .c-prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.25rem;
+    margin-bottom: 1.75rem;
+    font-size: 0.8125rem;
+    border: 1px solid var(--color-border);
+  }
+  .c-prose th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-bottom: 2px solid var(--color-border);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-hover);
+  }
+  .c-prose td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+  }
+  .c-prose tr:last-child td {
+    border-bottom: none;
+  }
+  .c-prose tr {
+    transition: background-color 150ms ease;
+  }
+  .c-prose tr:hover {
+    background-color: var(--color-bg-hover);
+  }
+
   .c-prose hr {
     border: 0;
     border-top: 1px solid var(--color-border);

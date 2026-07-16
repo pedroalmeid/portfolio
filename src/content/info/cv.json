@@ -1,119 +1,239 @@
 {
   "schemaType": "cv",
-  "name": "Pedro José Campos de Almeida",
-  "location": "Juiz de Fora, MG, Brasil",
-  "email": "pedrojos.campos@protonmail.com",
-  "summary": "Estudante de Ciência da Computação com sólida atuação técnica, com experiência no desenvolvimento <mark>Full-Stack</mark> de produtos digitais com foco em inovação e em pesquisa aplicada de Data Science, com ênfase em <mark>Inteligência Artificial Explicável (XAI)</mark> e <mark>Inferência Causal</mark>.",
-  "education": [
-    {
-      "degree": "Bacharelado em Ciência da Computação",
-      "institution": "Universidade Federal de Juiz de Fora — UFJF",
-      "period": "6º Período",
-      "details": "Previsão de formação: 2028"
-    }
-  ],
-  "experience": [
-    {
-      "company": "CIMO Engenharia e Soluções Ambientais",
-      "role": "Desenvolvedor Full-Stack — Departamento de Inovação",
-      "period": "Dez/2025 — Atual",
-      "bullets": [
-        "Atuação em modelo de intraempreendedorismo, compondo equipe autônoma de estudantes para ideação e desenvolvimento end-to-end de soluções tecnológicas.",
-        "Levantamento, especificação e análise de requisitos. Modelagem de regras de negócio e de banco de dados.",
-        "Desenvolvimento de Backend em Java (Spring Boot) e microsserviços (Firebase Cloud Functions com Python), com banco PostgreSQL.",
-        "Integração de Inteligência Artificial via consumo de LLMs (Perplexity API).",
-        "Desenvolvimento de Front-end com SvelteKit e UI Design com Figma.",
-        "Desenvolvimento acelerado por IA"
-      ]
-    },
-    {
-      "company": "Iniciação Científica em Ciência de Dados",
-      "role": "Bolsista PIBIC CNPq",
-      "period": "Set/2025 — Atual",
-      "bullets": [
-        "Processamento de dados agroclimáticos reais para treinamento de modelos preditivos focados na mitigação de emissões de carbono.",
-        "Aplicação de Inteligência Artificial Explicável (XAI) com SHAP, PDP Plots e ICE para auditoria e validação de modelos de ML.",
-        "Modelagem causal e estatística com grafos e Inferência Causal (DoWhy).",
-        "Autor principal de revisão sistemática publicada na conferência internacional ICEIS 2026."
-      ]
-    },
-    {
-      "company": "Iniciação Científica em IA + Engenharia de Software",
-      "role": "Bolsista BIC UFJF",
-      "period": "Set/2024 — Ago/2025",
-      "bullets": [
-        "Desenvolvimento de backend em Python (FastAPI) para automação na avaliação e seleção de modelos de Classificação (ML) aplicados à IoT.",
-        "Gerenciamento do ciclo de vida de modelos (MLOps) com MLflow para rastreamento de experimentos.",
-        "Integração de fluxos de dados e modelos treinados automaticamente com PyCaret (AutoML)."
-      ]
-    }
-  ],
-  "awards": [
-    {
-      "title": "Apresentação em Conferência Internacional — ICEIS 2026",
-      "period": "2026",
-      "description": "Autor principal de revisão publicada sobre o uso de IA Explicável (XAI) na mitigação de emissões de carbono na agricultura na conferência internacional de sistemas de informação empresariais."
-    },
-    {
-      "title": "Prêmio CAPES Talento Universitário (2024)",
-      "period": "2024",
-      "description": "Reconhecimento dado pela CAPES aos primeiros 1000 colocados nacionais em exame de conhecimentos gerais."
-    }
-  ],
-  "certifications": [
-    {
-      "title": "XAI With Python",
-      "institution": "— A Data Odyssey",
-      "description": "Especialização em algoritmos de explicabilidade e auditoria de modelos com Python. Foco em PDP's, ICE, PFI, SHAP e LIME.",
-      "url": "https://adataodyssey.com/courses/xai-with-python/"
-    },
-    {
-      "title": "DevOps with Docker",
-      "institution": "— University of Helsinki",
-      "description": "Introdução à DevOps, infraestrutura e conteinerização com Docker, otimização de containers, CI/CD com GitHub Actions. Curso internacional com exercícios validados pela universidade.",
-      "url": "https://courses.mooc.fi/certificates/validate/t82337q9y53qfkm"
-    },
-    {
-      "title": "Machine Learning e Data Science com Python de A a Z",
-      "institution": "— IA Expert Academy | Udemy",
-      "description": "Introdução à ciência de dados e aprendizado de máquina com Python.",
-      "url": "https://www.udemy.com/certificate/UC-a75d9630-1d09-43c6-b9c7-6b515d599b09/"
-    }
-  ],
-  "volunteer": [
-    {
-      "role": "Coordenador de Comunicação — Projeto Buddy",
-      "period": "Jun 2026 — Atual",
-      "description": "Coordenador do departamento de comunicação e design do projeto acadêmico voluntário voltado à internacionalização da Universidade Federal de Juiz de Fora. Fortalecimento do inglês e na comunicação institucional, além de integrar uma estrutura de demanadas, responsabilidades, e feedback contínuo para setores superiores."
-    },
-    {
-      "role": "Diretor de Comitê — Simulações da ONU (MUN)",
-      "period": "2022 — 2024",
-      "description": "Evento de protagonismo estudantil, com liderança na gestão de eventos de debates para mais de 200 estudantes. Fui responsável por dar treinamentos de oratória, negociação geopolítica e resolução de conflitos para os estudantes. Aprendi a lidar com responsabilidades, demandas, comunicação institucional e liderança de pessoas. Além disso, forteleceu muito meu inglês."
-    }
-  ],
-  "skills": [
-    {
-      "category": "SOFTWARE",
-      "items": ["Python", "Java", "SQL", "Svelte", "JavaScript", "RESTful API"]
-    },
-    {
-      "category": "DADOS & IA",
-      "items": ["Machine Learning", "XAI (SHAP)", "DoWhy", "Pandas", "Scikit-learn", "MLOps"]
-    },
-    {
-      "category": "FERRAMENTAS",
-      "items": ["Git", "Docker", "FastAPI", "VSCode DevContainers", "PostgreSQL", "Firebase", "Figma"]
-    }
-  ],
-  "languages": [
-    {
-      "name": "Português (BR)",
-      "level": "Nativo."
-    },
-    {
-      "name": "Inglês",
-      "level": "Leitura e compreensão avançadas (C2); Escrita e fala intermediária."
-    }
-  ]
+  "ptbr": {
+    "name": "Pedro José Campos de Almeida",
+    "location": "Juiz de Fora, MG, Brasil",
+    "email": "pedrojos.campos@protonmail.com",
+    "summary": "Estudante de Ciência da Computação com sólida atuação técnica, com experiência no desenvolvimento <mark>Full-Stack</mark> de produtos digitais com foco em inovação e em pesquisa aplicada de Data Science, com ênfase em <mark>Inteligência Artificial Explicável (XAI)</mark> e <mark>Inferência Causal</mark>.",
+    "education": [
+      {
+        "degree": "Bacharelado em Ciência da Computação",
+        "institution": "Universidade Federal de Juiz de Fora — UFJF",
+        "period": "6º Período",
+        "details": "Previsão de formação: 2028"
+      }
+    ],
+    "experience": [
+      {
+        "company": "CIMO Engenharia e Soluções Ambientais",
+        "role": "Desenvolvedor Full-Stack — Departamento de Inovação",
+        "period": "Dez/2025 — Atual",
+        "bullets": [
+          "Atuação em modelo de intraempreendedorismo, compondo equipe autônoma de estudantes para ideação e desenvolvimento end-to-end de soluções tecnológicas.",
+          "Levantamento, especificação e análise de requisitos. Modelagem de regras de negócio e de banco de dados.",
+          "Desenvolvimento de Backend em Java (Spring Boot) e microsserviços (Firebase Cloud Functions com Python), com banco PostgreSQL.",
+          "Integração de Inteligência Artificial via consumo de LLMs (Perplexity API).",
+          "Desenvolvimento de Front-end com SvelteKit e UI Design com Figma.",
+          "Desenvolvimento acelerado por IA"
+        ]
+      },
+      {
+        "company": "Iniciação Científica em Ciência de Dados",
+        "role": "Bolsista PIBIC CNPq",
+        "period": "Set/2025 — Atual",
+        "bullets": [
+          "Processamento de dados agroclimáticos reais para treinamento de modelos preditivos focados na mitigação de emissões de carbono.",
+          "Aplicação de Inteligência Artificial Explicável (XAI) com SHAP, PDP Plots e ICE para auditoria e validação de modelos de ML.",
+          "Modelagem causal e estatística com grafos e Inferência Causal (DoWhy).",
+          "Autor principal de revisão sistemática publicada na conferência internacional ICEIS 2026."
+        ]
+      },
+      {
+        "company": "Iniciação Científica em IA + Engenharia de Software",
+        "role": "Bolsista BIC UFJF",
+        "period": "Set/2024 — Ago/2025",
+        "bullets": [
+          "Desenvolvimento de backend em Python (FastAPI) para automação na avaliação e seleção de modelos de Classificação (ML) aplicados à IoT.",
+          "Gerenciamento do ciclo de vida de modelos (MLOps) com MLflow para rastreamento de experimentos.",
+          "Integração de fluxos de dados e modelos treinados automaticamente com PyCaret (AutoML)."
+        ]
+      }
+    ],
+    "awards": [
+      {
+        "title": "Apresentação em Conferência Internacional — ICEIS 2026",
+        "period": "2026",
+        "description": "Autor principal de revisão publicada sobre o uso de IA Explicável (XAI) na mitigação de emissões de carbono na agricultura na conferência internacional de sistemas de informação empresariais."
+      },
+      {
+        "title": "Prêmio CAPES Talento Universitário (2024)",
+        "period": "2024",
+        "description": "Reconhecimento dado pela CAPES aos primeiros 1000 colocados nacionais em exame de conhecimentos gerais."
+      }
+    ],
+    "certifications": [
+      {
+        "title": "XAI With Python",
+        "institution": "— A Data Odyssey",
+        "description": "Especialização em algoritmos de explicabilidade e auditoria de modelos com Python. Foco em PDP's, ICE, PFI, SHAP e LIME.",
+        "url": "https://adataodyssey.com/courses/xai-with-python/"
+      },
+      {
+        "title": "DevOps with Docker",
+        "institution": "— University of Helsinki",
+        "description": "Introdução à DevOps, infraestrutura e conteinerização com Docker, otimização de containers, CI/CD com GitHub Actions. Curso internacional com exercícios validados pela universidade.",
+        "url": "https://courses.mooc.fi/certificates/validate/t82337q9y53qfkm"
+      },
+      {
+        "title": "Machine Learning e Data Science com Python de A a Z",
+        "institution": "— IA Expert Academy | Udemy",
+        "description": "Introdução à ciência de dados e aprendizado de máquina com Python.",
+        "url": "https://www.udemy.com/certificate/UC-a75d9630-1d09-43c6-b9c7-6b515d599b09/"
+      }
+    ],
+    "volunteer": [
+      {
+        "role": "Coordenador de Comunicação — Projeto Buddy",
+        "period": "Jun 2026 — Atual",
+        "description": "Coordenador do departamento de comunicação e design do projeto acadêmico voluntário voltado à internacionalização da Universidade Federal de Juiz de Fora. Fortalecimento do inglês e na comunicação institucional, além de integrar uma estrutura de demanadas, responsabilidades, e feedback contínuo para setores superiores."
+      },
+      {
+        "role": "Diretor de Comitê — Simulações da ONU (MUN)",
+        "period": "2022 — 2024",
+        "description": "Evento de protagonismo estudantil, com liderança na gestão de eventos de debates para mais de 200 estudantes. Fui responsável por dar treinamentos de oratória, negociação geopolítica e resolução de conflitos para os estudantes. Aprendi a lidar com responsabilidades, demandas, comunicação institucional e liderança de pessoas. Além disso, forteleceu muito meu inglês."
+      }
+    ],
+    "skills": [
+      {
+        "category": "SOFTWARE",
+        "items": ["Python", "Java", "SQL", "Svelte", "JavaScript", "RESTful API"]
+      },
+      {
+        "category": "DADOS & IA",
+        "items": ["Machine Learning", "XAI (SHAP)", "DoWhy", "Pandas", "Scikit-learn", "MLOps"]
+      },
+      {
+        "category": "FERRAMENTAS",
+        "items": ["Git", "Docker", "FastAPI", "VSCode DevContainers", "PostgreSQL", "Firebase", "Figma"]
+      }
+    ],
+    "languages": [
+      {
+        "name": "Português (BR)",
+        "level": "Nativo."
+      },
+      {
+        "name": "Inglês",
+        "level": "Leitura e compreensão avançadas (C2); Escrita e fala intermediária."
+      }
+    ]
+  },
+  "eng": {
+    "name": "Pedro José Campos de Almeida",
+    "location": "Juiz de Fora, MG, Brazil",
+    "email": "pedrojos.campos@protonmail.com",
+    "summary": "Computer Science student with a solid technical background, experienced in <mark>Full-Stack</mark> development of digital products with a focus on innovation and applied research in Data Science, emphasizing <mark>Explainable Artificial Intelligence (XAI)</mark> and <mark>Causal Inference</mark>.",
+    "education": [
+      {
+        "degree": "Bachelor of Computer Science",
+        "institution": "Federal University of Juiz de Fora — UFJF",
+        "period": "6th Period",
+        "details": "Expected graduation: 2028"
+      }
+    ],
+    "experience": [
+      {
+        "company": "CIMO Engineering and Environmental Solutions",
+        "role": "Full-Stack Developer — Innovation Department",
+        "period": "Dec/2025 — Present",
+        "bullets": [
+          "Worked in an intrapreneurship model, composing an autonomous student team for the ideation and end-to-end development of technological solutions.",
+          "Gathering, specification, and analysis of requirements. Modeling business rules and database schemas.",
+          "Backend development in Java (Spring Boot) and microservices (Firebase Cloud Functions with Python), using a PostgreSQL database.",
+          "Integration of Artificial Intelligence through consumption of LLMs (Perplexity API).",
+          "Frontend development with SvelteKit and UI Design with Figma.",
+          "AI-accelerated development"
+        ]
+      },
+      {
+        "company": "Undergraduate Research in Data Science",
+        "role": "PIBIC CNPq",
+        "period": "Sep/2025 — Present",
+        "bullets": [
+          "Processing of real agro-climatic data for training predictive models focused on mitigating carbon emissions.",
+          "Application of Explainable Artificial Intelligence (XAI) with SHAP, PDP Plots, and ICE for auditing and validating ML models.",
+          "Causal and statistical modeling using graphs and Causal Inference (DoWhy).",
+          "Lead author of a systematic review published at the international ICEIS 2026 conference."
+        ]
+      },
+      {
+        "company": "Undergraduate Research in AI + Software Engineering",
+        "role": "BIC UFJF",
+        "period": "Sep/2024 — Aug/2025",
+        "bullets": [
+          "Backend development in Python (FastAPI) for automated evaluation and selection of Classification (ML) models applied to IoT.",
+          "Experiment tracking and model lifecycle management (MLOps) using MLflow.",
+          "Integration of data flows and models automatically trained with PyCaret (AutoML)."
+        ]
+      }
+    ],
+    "awards": [
+      {
+        "title": "Presentation at International Conference — ICEIS 2026",
+        "period": "2026",
+        "description": "Lead author of a published review on using Explainable AI (XAI) to mitigate carbon emissions in agriculture at the International Conference on Enterprise Information Systems."
+      },
+      {
+        "title": "CAPES National University Talent Award (2024)",
+        "period": "2024",
+        "description": "Recognition given by CAPES to the top 1,000 national scorers in a general knowledge examination."
+      }
+    ],
+    "certifications": [
+      {
+        "title": "XAI With Python",
+        "institution": "— A Data Odyssey",
+        "description": "Specialization in explainability algorithms and model auditing with Python. Focus on PDPs, ICE, PFI, SHAP, and LIME.",
+        "url": "https://adataodyssey.com/courses/xai-with-python/"
+      },
+      {
+        "title": "DevOps with Docker",
+        "institution": "— University of Helsinki",
+        "description": "Introduction to DevOps, infrastructure, and containerization with Docker, container optimization, and CI/CD with GitHub Actions. International course with university-validated exercises.",
+        "url": "https://courses.mooc.fi/certificates/validate/t82337q9y53qfkm"
+      },
+      {
+        "title": "Machine Learning and Data Science with Python from A to Z",
+        "institution": "— IA Expert Academy | Udemy",
+        "description": "Introduction to data science and machine learning with Python.",
+        "url": "https://www.udemy.com/certificate/UC-a75d9630-1d09-43c6-b9c7-6b515d599b09/"
+      }
+    ],
+    "volunteer": [
+      {
+        "role": "Communications Coordinator — Buddy Project",
+        "period": "Jun 2026 — Present",
+        "description": "Coordinator of the communications and design department of the voluntary academic project focused on the internationalization of the Federal University of Juiz de Fora. Strengthening English skills and institutional communication, as well as integrating a structure of demands, responsibilities, and continuous feedback for upper management."
+      },
+      {
+        "role": "Committee Director — Model UN (MUN)",
+        "period": "2022 — 2024",
+        "description": "Student leadership event, managing debate events for over 200 students. Responsible for providing training in public speaking, geopolitical negotiation, and conflict resolution. Learned to handle responsibilities, demands, institutional communication, and human leadership. Additionally, significantly strengthened my English skills."
+      }
+    ],
+    "skills": [
+      {
+        "category": "SOFTWARE",
+        "items": ["Python", "Java", "SQL", "Svelte", "JavaScript", "RESTful API"]
+      },
+      {
+        "category": "DATA & AI",
+        "items": ["Machine Learning", "XAI (SHAP)", "DoWhy", "Pandas", "Scikit-learn", "MLOps"]
+      },
+      {
+        "category": "TOOLS",
+        "items": ["Git", "Docker", "FastAPI", "VSCode DevContainers", "PostgreSQL", "Firebase", "Figma"]
+      }
+    ],
+    "languages": [
+      {
+        "name": "Portuguese (BR)",
+        "level": "Native."
+      },
+      {
+        "name": "English",
+        "level": "Advanced reading and comprehension (C2); Intermediate writing and speaking."
+      }
+    ]
+  }
 }

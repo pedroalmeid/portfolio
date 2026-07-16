@@ -1,23 +1,47 @@
 {
   "schemaType": "projects",
-  "projects": [
-    {
-      "id": "worldcup-predictor",
-      "name": "World Cup Causal Predictor",
-      "description": "Modelo preditivo de placares para a Copa do Mundo 2026 com abordagem causal construído do zero",
-      "url": "https://github.com/pedroalmeid/worldcup_predictor",
-      "techStack": ["Python", "Modelo preditivo", "Data Engineering", "Data Science", "DoWhy", "Inferência Causal", "Streamlit"],
-      "year": 2026,
-      "caseSlug": "worldcup-predictor"
-    },
-    {
-      "id": "portfolio",
-      "name": "Este próprio portfólio!",
-      "description": "Portfólio profissional e acadêmico, funcionando de forma extremamente estática, leve e veloz ao pré-compilar conteúdos com Astro, Tailwind CSS e TypeScript",
-      "url": "https://github.com/pedroalmeid/portfolio",
-      "techStack": ["Astro", "Tailwind CSS", "TypeScript", "Zod"],
-      "year": 2026,
-      "caseSlug": "portfolio"
-    }
-  ]
+  "ptbr": {
+    "projects": [
+      {
+        "id": "worldcup-predictor",
+        "name": "World Cup Causal Predictor",
+        "description": "Modelo preditivo de placares para a Copa do Mundo 2026 com abordagem causal construído do zero",
+        "url": "https://github.com/pedroalmeid/worldcup_predictor",
+        "techStack": ["Python", "Modelo preditivo", "Data Engineering", "Data Science", "DoWhy", "Inferência Causal", "Streamlit"],
+        "year": 2026,
+        "caseSlug": "worldcup-predictor"
+      },
+      {
+        "id": "portfolio",
+        "name": "Este próprio portfólio!",
+        "description": "Portfólio profissional e acadêmico, funcionando de forma extremamente estática, leve e veloz ao pré-compilar conteúdos com Astro, Tailwind CSS e TypeScript",
+        "url": "https://github.com/pedroalmeid/portfolio",
+        "techStack": ["Astro", "Tailwind CSS", "TypeScript", "Zod"],
+        "year": 2026,
+        "caseSlug": "portfolio"
+      }
+    ]
+  },
+  "eng": {
+    "projects": [
+      {
+        "id": "worldcup-predictor",
+        "name": "World Cup Causal Predictor",
+        "description": "Match score predictive model for the 2026 World Cup using a causal approach built from scratch",
+        "url": "https://github.com/pedroalmeid/worldcup_predictor",
+        "techStack": ["Python", "Predictive Model", "Data Engineering", "Data Science", "DoWhy", "Causal Inference", "Streamlit"],
+        "year": 2026,
+        "caseSlug": "worldcup-predictor"
+      },
+      {
+        "id": "portfolio",
+        "name": "This very portfolio!",
+        "description": "Professional and academic portfolio, designed to be extremely static, lightweight, and fast by pre-compiling content with Astro, Tailwind CSS, and TypeScript",
+        "url": "https://github.com/pedroalmeid/portfolio",
+        "techStack": ["Astro", "Tailwind CSS", "TypeScript", "Zod"],
+        "year": 2026,
+        "caseSlug": "portfolio"
+      }
+    ]
+  }
 }

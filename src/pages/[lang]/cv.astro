@@ -1,7 +1,17 @@
 ---
-import BaseLayout from '../components/astro/BaseLayout.astro';
+import BaseLayout from '../../components/astro/BaseLayout.astro';
 import { getEntry } from 'astro:content';
 import { Download, ExternalLink } from '@lucide/astro';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'ptbr' } },
+    { params: { lang: 'eng' } }
+  ];
+}
+
+const { lang } = Astro.params;
+const isEng = lang === 'eng';
 
 const cvEntry = await getEntry('info', 'cv');
 if (!cvEntry || cvEntry.data.schemaType !== 'cv') {
@@ -20,17 +30,17 @@ const {
   volunteer, 
   skills, 
   languages 
-} = cvEntry.data;
+} = cvEntry.data[lang as 'ptbr' | 'eng'];
 
 const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 ---
 
-<BaseLayout title={`Currículo | ${name}`} description={`Currículo profissional de ${name}.`}>
+<BaseLayout lang={lang} title={isEng ? `CV / Resume | ${name}` : `Currículo | ${name}`} description={isEng ? `Professional CV of ${name}.` : `Currículo profissional de ${name}.`}>
   <div class="space-y-12 max-w-2xl select-text">
     
     <!-- Header Section -->
     <div class="space-y-4">
-      <span class="c-section-label">Currículo</span>
+      <span class="c-section-label">{isEng ? "CV / Resume" : "Currículo"}</span>
       
       <div class="flex items-center justify-between gap-4">
         <h1 class="font-extrabold text-text-primary text-[2.5rem] leading-[1.15] tracking-tight">
@@ -38,7 +48,7 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
         </h1>
         
         <a 
-          href={`${baseUrl}Curriculo_PedroAlmeida_PTBR.pdf`} 
+          href={isEng ? `${baseUrl}CV_PedroAlmeida_ENG.pdf` : `${baseUrl}Curriculo_PedroAlmeida_PTBR.pdf`} 
           download
           class="btn-secondary shrink-0 text-xs py-1.5 px-3 flex items-center select-none"
         >
@@ -58,7 +68,7 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
 
     <!-- Formação Acadêmica Section -->
     <section class="space-y-6">
-      <h2 class="c-section-label">Formação Acadêmica</h2>
+      <h2 class="c-section-label">{isEng ? "Education" : "Formação Acadêmica"}</h2>
       
       <div class="relative pl-6 border-l border-border space-y-6">
         {education.map((edu) => (
@@ -87,7 +97,7 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
 
     <!-- Experiência Profissional e Acadêmica Section -->
     <section class="space-y-6">
-      <h2 class="c-section-label">Experiência Profissional e Acadêmica</h2>
+      <h2 class="c-section-label">{isEng ? "Professional & Academic Experience" : "Experiência Profissional e Acadêmica"}</h2>
       
       <div class="relative pl-6 border-l border-border space-y-8">
         {experience.map((exp) => (
@@ -116,7 +126,7 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
 
     <!-- Prêmios e Produção Científica Section -->
     <section class="space-y-6">
-      <h2 class="c-section-label">Prêmios e Produção Científica</h2>
+      <h2 class="c-section-label">{isEng ? "Awards & Scientific Publications" : "Prêmios e Produção Científica"}</h2>
       
       <div class="relative pl-6 border-l border-border space-y-6">
         {awards.map((award) => (
@@ -139,7 +149,7 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
 
     <!-- Cursos e Certificações Section -->
     <section class="space-y-6">
-      <h2 class="c-section-label">Cursos e Certificações</h2>
+      <h2 class="c-section-label">{isEng ? "Courses & Certifications" : "Cursos e Certificações"}</h2>
       
       <div class="relative pl-6 border-l border-border space-y-6">
         {certifications.map((cert) => (
@@ -163,7 +173,7 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
                 rel="noopener noreferrer" 
                 class="inline-flex items-center text-xs font-medium text-accent hover:underline pt-1 select-none"
               >
-                <span>Ver certificado</span>
+                <span>{isEng ? "View certificate" : "Ver certificado"}</span>
                 <ExternalLink class="h-3 w-3 ml-1" />
               </a>
             )}
@@ -174,7 +184,7 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
 
     <!-- Liderança e Voluntariado Section -->
     <section class="space-y-6">
-      <h2 class="c-section-label">Liderança e Voluntariado</h2>
+      <h2 class="c-section-label">{isEng ? "Leadership & Volunteering" : "Liderança e Voluntariado"}</h2>
       
       <div class="relative pl-6 border-l border-border space-y-6">
         {volunteer.map((vol) => (
@@ -197,7 +207,7 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
 
     <!-- Habilidades Técnicas Section -->
     <section class="space-y-6">
-      <h2 class="c-section-label">Habilidades Técnicas</h2>
+      <h2 class="c-section-label">{isEng ? "Technical Skills" : "Habilidades Técnicas"}</h2>
       
       <div class="space-y-4">
         {skills.map((skill) => (
@@ -217,16 +227,16 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
 
     <!-- Idiomas Section -->
     <section class="space-y-6">
-      <h2 class="c-section-label">Idiomas</h2>
+      <h2 class="c-section-label">{isEng ? "Languages" : "Idiomas"}</h2>
       
       <div class="space-y-3">
-        {languages.map((lang) => (
+        {languages.map((langItem) => (
           <div class="flex items-start">
             <span class="w-32 text-sm font-bold text-text-primary shrink-0 select-none">
-              {lang.name}
+              {langItem.name}
             </span>
             <span class="text-sm text-text-secondary">
-              {lang.level}
+              {langItem.level}
             </span>
           </div>
         ))}

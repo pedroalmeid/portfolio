@@ -1,7 +1,17 @@
 ---
-import BaseLayout from '../../components/astro/BaseLayout.astro';
+import BaseLayout from '../../../components/astro/BaseLayout.astro';
 import { getEntry } from 'astro:content';
 import { FileText } from '@lucide/astro';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'ptbr' } },
+    { params: { lang: 'eng' } }
+  ];
+}
+
+const { lang } = Astro.params;
+const isEng = lang === 'eng';
 
 // Fetch projects from JSON
 const projectsEntry = await getEntry('info', 'projects');
@@ -9,23 +19,30 @@ if (!projectsEntry || projectsEntry.data.schemaType !== 'projects') {
   throw new Error('Falha ao carregar dados dos projetos (projects.json).');
 }
 
-const projectsList = projectsEntry.data.projects;
+const projectsList = projectsEntry.data[lang as 'ptbr' | 'eng'].projects;
 const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 ---
 
-<BaseLayout title="Projetos | Pedro José" description="Projetos acadêmicos, de pesquisa e pessoais de Pedro José Campos de Almeida.">
+<BaseLayout 
+  lang={lang} 
+  title={isEng ? "Projects | Pedro José" : "Projetos | Pedro José"} 
+  description={isEng ? "Academic, research, and personal projects of Pedro José Campos de Almeida." : "Projetos acadêmicos, de pesquisa e pessoais de Pedro José Campos de Almeida."}
+>
   <div class="space-y-8 max-w-2xl">
     
     <!-- Header Section -->
     <div class="space-y-4">
-      <span class="c-section-label">Projetos</span>
+      <span class="c-section-label">{isEng ? "Projects" : "Projetos"}</span>
       
       <h1 class="font-extrabold text-text-primary text-[2.5rem] leading-[1.15] tracking-tight select-none">
-        O que eu construo e construí
+        {isEng ? "What I build and have built" : "O que eu construo e construí"}
       </h1>
       
       <p class="text-text-secondary text-sm leading-relaxed">
-        Projetos pessoais, acadêmicos, de pesquisa e freelance — todos com código disponível no GitHub. Clique em "Ler Caso" para entender melhor cada uma das soluções, seu contexto, experiência adquirida e entrega.
+        {isEng
+          ? "Personal, academic, research, and freelance projects. Click on \"Read Case\" to better understand each solution, its context, experience gained, and delivery."
+          : "Projetos pessoais, acadêmicos, de pesquisa e freelance. Clique em \"Ler Caso\" para entender melhor cada uma das soluções, seu contexto, experiência adquirida e entrega."
+        }
       </p>
     </div>
 
@@ -77,11 +94,11 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_UR
               
               {project.caseSlug && (
                 <a 
-                  href={`${baseUrl}projetos/${project.caseSlug}`} 
+                  href={`${baseUrl}${lang}/projects/${project.caseSlug}`} 
                   class="btn-mini-case"
                 >
                   <FileText class="w-3.5 h-3.5 mr-1.5" />
-                  <span>Ler Caso</span>
+                  <span>{isEng ? "Read Case" : "Ler Caso"}</span>
                 </a>
               )}
             </div>

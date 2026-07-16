@@ -1,10 +1,21 @@
 {
   "schemaType": "contact",
-  "title": "Vamos conversar",
-  "description": "Aberto a oportunidades de pesquisa, estágio e colaboração em projetos. Respondo o mais rápido possível. ",
-  "email": "pedrojos.campos@protonmail.com",
-  "github": "github.com/pedroalmeid",
-  "linkedin": "linkedin.com/in/pedroalmeid",
-  "discord": "#pedroalmeid1",
-  "location": "Juiz de Fora, MG - Brasil"
+  "ptbr": {
+    "title": "Vamos conversar",
+    "description": "Aberto a oportunidades de pesquisa, estágio e colaboração em projetos. Respondo o mais rápido possível.",
+    "email": "pedrojos.campos@protonmail.com",
+    "github": "github.com/pedroalmeid",
+    "linkedin": "linkedin.com/in/pedroalmeid",
+    "discord": "#pedroalmeid1",
+    "location": "Juiz de Fora, MG - Brasil"
+  },
+  "eng": {
+    "title": "Let's talk",
+    "description": "Open to research, internship, and project collaboration opportunities. I will respond as soon as possible.",
+    "email": "pedrojos.campos@protonmail.com",
+    "github": "github.com/pedroalmeid",
+    "linkedin": "linkedin.com/in/pedroalmeid",
+    "discord": "#pedroalmeid1",
+    "location": "Juiz de Fora, MG - Brazil"
+  }
 }

@@ -1,19 +1,39 @@
 {
   "schemaType": "home",
-  "heroTitle": "Pedro José Campos de Almeida",
-  "bio": "Olá, meu nome é Pedro e sou estudante de <mark>Ciência da Computação</mark> na UFJF. Gosto de criar coisas que sejam realmente úteis e, mais importante ainda, <mark>fiéis à realidade</mark>. Por isso, hoje estudo <mark>Ciência de Dados e Desenvolvimento de Software</mark> com muito prazer. Procuro minha primeira oportunidade no mercado e reuni minhas melhores experiências aqui neste <mark>portfólio :)</mark>",
-  "contactBtnText": "Falar comigo",
-  "cvBtnText": "Currículo PDF",
-  "highlights": [
-    {
-      "type": "project",
-      "id": "worldcup-predictor"
-    },
-    {
-      "type": "paper",
-      "id": "xai-agriculture-review"
-    }
-  ],
-  "aboutTitle": "Sobre",
-  "aboutText": "Estudante do curso de Bacharelado de Ciência da Computação Integral pela Universidade Federal de Juiz de Fora (UFJF), atualmente no 6º período. Sempre fui interessado por inovação e conhecimento e, atualmente, ocupo cargo de pesquisador bolsista de Iniciação Científica na área de Ciência de Dados há mais de um ano. Durante o projeto, trabalhei com Engenharia de Software na área de IA, no ramo de pesquisa 'Arquiteturas Autoadaptativas de Software e Inteligência Artificial para a Internet das Coisas'. Atualmente, trabalho com a utilização de análise e ciência de dados para suporte à tomada de decisão estratégica em cenários ambientais, sob o ramo 'Geração de conhecimento para mitigar emissão de carbono na agricultura'. Nesse contexto, tenho manipulado ferramentas de Explainable AI (xAI) e de Inferência Causal.  Além da base técnica em computação, trago experiência em liderança e gestão de projetos desenvolvida em simulações da ONU, o que me permite comunicar resultados técnicos para públicos multidisciplinares com clareza e impacto."
+  "ptbr": {
+    "heroTitle": "Pedro José Campos de Almeida",
+    "bio": "Olá, meu nome é Pedro e sou estudante de <mark>Ciência da Computação</mark> na UFJF. Gosto de criar coisas que sejam realmente úteis e, mais importante ainda, <mark>fiéis à realidade</mark>. Por isso, hoje estudo <mark>Ciência de Dados e Desenvolvimento de Software</mark> com muito prazer. Procuro minha primeira oportunidade no mercado e reuni minhas melhores experiências aqui neste <mark>portfólio :)</mark>",
+    "contactBtnText": "Falar comigo",
+    "cvBtnText": "Currículo PDF",
+    "highlights": [
+      {
+        "type": "project",
+        "id": "worldcup-predictor"
+      },
+      {
+        "type": "paper",
+        "id": "xai-agriculture-review"
+      }
+    ],
+    "aboutTitle": "Sobre",
+    "aboutText": "Estudante do curso de Bacharelado de Ciência da Computação Integral pela Universidade Federal de Juiz de Fora (UFJF), atualmente no 6º período. Sempre fui interessado por inovação e conhecimento e, atualmente, ocupo cargo de pesquisador bolsista de Iniciação Científica na área de Ciência de Dados há mais de um ano. Durante o projeto, trabalhei com Engenharia de Software na área de IA, no ramo de pesquisa 'Arquiteturas Autoadaptativas de Software e Inteligência Artificial para a Internet das Coisas'. Atualmente, trabalho com a utilização de análise e ciência de dados para suporte à tomada de decisão estratégica em cenários ambientais, sob o ramo 'Geração de conhecimento para mitigar emissão de carbono na agricultura'. Nesse contexto, tenho manipulado ferramentas de Explainable AI (xAI) e de Inferência Causal. Além da base técnica em computação, trago experiência em liderança e gestão de projetos desenvolvida em simulações da ONU, o que me permite comunicar resultados técnicos para públicos multidisciplinares com clareza e impacto."
+  },
+  "eng": {
+    "heroTitle": "Pedro José Campos de Almeida",
+    "bio": "Hello, my name is Pedro and I'm a <mark>Computer Science</mark> student at UFJF. I like to build things that are truly useful and, more importantly, <mark>faithful to reality</mark>. Therefore, today I study <mark>Data Science and Software Development</mark> with great pleasure. I am looking for my first market opportunity and gathered my best experiences here in this <mark>portfolio :)</mark>",
+    "contactBtnText": "Get in touch",
+    "cvBtnText": "Resume PDF",
+    "highlights": [
+      {
+        "type": "project",
+        "id": "worldcup-predictor"
+      },
+      {
+        "type": "paper",
+        "id": "xai-agriculture-review"
+      }
+    ],
+    "aboutTitle": "About",
+    "aboutText": "Student of Bachelor of Computer Science program at the Federal University of Juiz de Fora (UFJF), currently in my 6th semester. I have always been driven by a passion for innovation and knowledge, and for over a year now I have been working as an Undergraduate Researcher in Data Science. During this time, I worked with Software Engineering applied to AI within the research branch Self-Adaptive Software Architectures and Artificial Intelligence for the Internet of Things. Currently, I focus on leveraging data analysis and data science to support strategic decision-making in environmental contexts, specifically under the branch Knowledge Generation to Mitigate Carbon Emissions in Agriculture. In this role, I have been working extensively with Explainable AI (xAI) and Causal Inference tools. Beyond my technical background in computing, I bring leadership and project management experience developed through Model UN simulations, which enables me to communicate technical findings to multidisciplinary audiences with clarity and impact."
+  }
 }
