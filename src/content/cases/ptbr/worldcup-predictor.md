@@ -55,30 +55,30 @@ Dessa forma, o simulador baseia-se na **força purificada** das equipes, injetan
 ## ⚡ Funcionalidades Principais
 
 - **Motor Probabilístico de Dixon-Coles:** Calibração customizada sobre a regressão de Poisson para corrigir a subestimação crônica de empates de baixo placar (0x0, 1x1) típica de modelos estatísticos básicos.
-- **Módulo de Choque Ambiental:** Algoritmo que calcula a quebra de homeostase dos atletas comparando as condições meteorológicas e de altitude do local da partida com a baseline geográfica histórica do país de origem da seleção.
-- **Interventor de Game State (Human-in-the-Loop):** Módulo que permite incorporar cenários específicos via análise humana e crítica futebolística. Ele aborda situações complexas — como as possibilidades matemáticas da última rodada da fase de grupos ou a postura de zebras no mata-mata — introduzindo multiplicadores dinâmicos nas matrizes de ataque e defesa que se autoajustam através de um algoritmo de aprendizado básico, entregando predições com resultados incríveis.
-- **Pipeline MLOps Incremental:** Script arquitetado para ingestão contínua, recálculo de features temporais e retreino automático dos modelos causais a cada nova rodada completada.
+- **Módulo de Choque Ambiental:** Algoritmo que estima o impacto climático para um time levando em conta as condições meteorológicas e de altitude do local da partida cruzadas com a baseline geográfica histórica do país de origem da seleção.
+- **Interventor de Game State (Human-in-the-Loop):** Módulo que permite incorporar cenários específicos via análise crítica humana futebolística. Ele aborda situações complexas — como as possibilidades matemáticas da última rodada da fase de grupos ou a postura de zebras no mata-mata buscando pênaltis — introduzindo multiplicadores dinâmicos nas matrizes de ataque e defesa que se autoajustam através de um algoritmo de aprendizado básico, entregando predições com resultados incríveis.
+- **Pipeline MLOps Incremental:** Script arquitetado para ingestão contínua, recálculo de features temporais e retreino automático dos modelos causais a cada nova rodada completada do evento.
 
 ---
 
 ## 🏆 Principais Resultados
 
-O modelo foi submetido a teste em cenário real (produção) durante a Copa do Mundo, operando de forma paralela ao torneio. Isolando o viés humano e operando estritamente sobre as recomendações do motor probabilístico, a arquitetura provou seu valor estatístico.
+O modelo foi submetido a teste em cenário real (produção) durante toda a Copa do Mundo, operando de forma paralela ao torneio.
 
 ### 📊 Dados dos Resultados Gerais
 
-Abaixo estão detalhados os dados de precisão alcançados pela **Modalidade Probabilística (Moda Conjunta)**, estimando a maior probabilidade conjunta pela matriz Dixon-Coles:
+Abaixo estão detalhados os dados de precisão alcançados pela **Modalidade Probabilística (Moda Conjunta)**, estimando como o placar final predito aquele de maior probabilidade na matriz Dixon-Coles:
 
-| Métrica                                 | Todas as Partidas (102 jogos) | Mata-Mata Geral (30 jogos) |
+| Métrica                                 | Todas as Partidas (104 jogos) | Mata-Mata Geral (32 jogos) |
 | :-------------------------------------- | :---------------------------: | :------------------------: |
-| **Placares Exatos**                     |             13.7%             |           23.3%            |
-| <mark>**Resultados (V/E/D)**</mark>     |    <mark>**70.6%**</mark>     |   <mark>**86.7%**</mark>   |
-| **Gols do Vencedor**                    |             28.2%             |           46.2%            |
-| **Gols do Perdedor**                    |             48.7%             |           50.0%            |
-| **Erro Abs. Médio em Gols do Vencedor** |             1.05              |            0.58            |
-| **Erro Abs. Médio em Gols do Perdedor** |             0.64              |            0.62            |
-| **Saldo de Gols**                       |             28.4%             |           33.3%            |
-| **Gols Feitos na Partida**              |             24.5%             |           33.3%            |
+| **Placares Exatos**                     |             13.5%             |           21.9%            |
+| <mark>**Resultados (V/E/D)**</mark>     |    <mark>**69.2%**</mark>     |   <mark>**81.2%**</mark>   |
+| **Gols do Vencedor**                    |             28.7%             |           46.4%            |
+| **Gols do Perdedor**                    |             47.5%             |           46.4%            |
+| **Erro Abs. Médio em Gols do Vencedor** |             1.09              |            0.71            |
+| **Erro Abs. Médio em Gols do Perdedor** |             0.68              |            0.71            |
+| **Saldo de Gols**                       |             27.9%             |           31.2%            |
+| **Gols Feitos na Partida**              |             24.0%             |           31.2%            |
 
 ### 🔍 Resultados Curiosos
 
@@ -87,6 +87,7 @@ Abaixo estão detalhados os dados de precisão alcançados pela **Modalidade Pro
 - **Semifinais Difíceis:** Nos difíceis jogos das semifinais, o modelo cravou o 2x1 da Argentina sobre a Inglaterra e palpitou com precisão que a Espanha venceria a favorita França marcando exatamente 2 gols.
 - **Quartas de Final Impecáveis:** Acertamos a direção do resultado (V/E/D) de todos os confrontos das quartas de final, cravando o placar exato em metade deles.
 - **Evolução e Aprendizado:** O modelo mostrou excelente capacidade de adaptação e aprendizado rápido. Na 1ª rodada da fase de grupos a taxa de acerto de resultados foi de 50%, subindo para 70,8% nas rodadas 2 e 3.
+- **Participação em Bolão:** Se participasse da promoção de bolão do Ifood + CazéTV, o modelo teria performado para ficar entre os 630 melhores palpites do Brasil e, no ranking do mata-mata, ficaria entre os 50 melhores, vencendo uma premiação. 
 
 ---
 
@@ -157,7 +158,7 @@ worldcup_causal_predictor/
 | **Machine Learning**                | `scikit-learn`, `XGBoost`                                                     |
 | **Data Engineering & APIs**         | `pandas`, `numpy`, `pyarrow`, `soccerdata`, `Open-Meteo API`, `StatsBomb API` |
 | **Interface de Usuário (Web)**      | `Streamlit`                                                                   |
-| **Qualidade & Deploy**              | `pytest`, `Makefile`, `Docker` _(implícito na orquestração)_                  |
+| **Qualidade & Deploy**              | `pytest`, `Makefile`, `Docker` _(dev containers)_                  |
 
 ---
 

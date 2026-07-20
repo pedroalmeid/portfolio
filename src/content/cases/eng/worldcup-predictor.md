@@ -55,30 +55,30 @@ Thus, the simulator is based on the **purified strength** of the teams, injectin
 ## ⚡ Main Features
 
 - **Dixon-Coles Probabilistic Engine:** Custom calibration on Poisson regression to correct the chronic underestimation of low-scoring draws (0-0, 1-1) typical of basic statistical models.
-- **Environmental Shock Module:** Algorithm that calculates the athlete's homeostatic disruption by comparing weather and altitude conditions at the match location with the geographical baseline of the team's country of origin.
-- **Game State Intervener (Human-in-the-Loop):** A module designed to incorporate specific scenarios based on human analysis and football criticism. It handles complex situations—such as mathematical possibilities in the final round of the group stage or the behavior of underdogs in the knockout stage—by introducing dynamic multipliers to the offensive and defensive matrices that self-adjust through a basic learning algorithm, yielding highly accurate predictions and incredible results.
-- **Incremental MLOps Pipeline:** Script designed for continuous ingestion, recalculation of temporal features, and automatic retraining of causal models after each completed round.
+- **Environmental Shock Module:** Algorithm that measures the impact of climate conditions on a team by comparing weather and altitude conditions at the match location with the geographical baseline of the team's country of origin.
+- **Game State Intervener (Human-in-the-Loop):** A module designed to incorporate specific scenarios based on human critical football analysis. It handles complex situations—such as mathematical possibilities in the final round of the group stage or the behavior of underdogs in the knockout stage by introducing dynamic multipliers to the offensive and defensive matrices that self-adjust through a basic learning algorithm, yielding highly accurate predictions and incredible results.
+- **Incremental MLOps Pipeline:** Script designed for continuous ingestion, recalculation of temporal features, and automatic retraining of causal models after each completed round of the event.
 
 ---
 
 ## 🏆 Main Results
 
-The model was tested in a real-world scenario (production) during the World Cup, operating in parallel with the tournament. By isolating human bias and operating strictly under the recommendations of the probabilistic engine, the architecture proved its statistical value.
+The model was tested in a real-world scenario (production) during the whole World Cup, operating in parallel with the tournament.
 
 ### 📊 General Results Data
 
 Below are the detailed accuracy figures achieved by the **Probabilistic Mode (Joint Mode)**, estimating the highest joint probability using the Dixon-Coles matrix:
 
-| Metric | All Matches (102 matches) | Knockout Stage (30 matches) |
+| Metric | All Matches (104 matches) | Knockout Stage (32 matches) |
 | :--- | :---: | :---: |
-| **Exact Scores** | 13.7% | 23.3% |
-| <mark>**Outcomes (W/D/L)**</mark> | <mark>**70.6%**</mark> | <mark>**86.7%**</mark> |
-| **Winner's Goals** | 28.2% | 46.2% |
-| **Loser's Goals** | 48.7% | 50.0% |
-| **MAE in Winner's Goals** | 1.05 | 0.58 |
-| **MAE in Loser's Goals** | 0.64 | 0.62 |
-| **Goal Difference** | 28.4% | 33.3% |
-| **Total Goals Scored** | 24.5% | 33.3% |
+| **Exact Scores** | 13.5% | 21.9% |
+| <mark>**Outcomes (W/D/L)**</mark> | <mark>**69.2%**</mark> | <mark>**81.2%**</mark> |
+| **Winner's Goals** | 28.7% | 46.4% |
+| **Loser's Goals** | 47.5% | 46.4% |
+| **MAE in Winner's Goals** | 1.09 | 0.71 |
+| **MAE in Loser's Goals** | 0.68 | 0.71 |
+| **Goal Difference** | 27.9% | 31.2% |
+| **Total Goals Scored** | 24.0% | 31.2% |
 
 ### 🔍 Curious Results & Trivia
 
@@ -87,6 +87,7 @@ Below are the detailed accuracy figures achieved by the **Probabilistic Mode (Jo
 - **Tough Semifinal Matches:** In the tough semifinal matches, the model nailed Argentina's 2-1 victory over England and predicted Spain's win by scoring exactly 2 goals against the favorite France.
 - **Flawless Quarterfinals:** We predicted the correct outcome (W/D/L) of all quarterfinal matches, nailing the exact scores for half of them.
 - **Evolution and Learning:** The model demonstrated an excellent capability to adapt and learn quickly. While the outcome accuracy in the 1st round of the group stage was 50%, it rose to 70.8% in rounds 2 and 3.
+- **Participation in Prediction Contest:** If participated in the Ifood + CazéTV promotion contest, the model would have performed well to stay between the 630 best predictions of Brazil and, in the knockout stage, would have been between the 50 best, winning a great.
 
 ---
 
@@ -155,7 +156,7 @@ worldcup_causal_predictor/
 | **Machine Learning** | `scikit-learn`, `XGBoost` |
 | **Data Engineering & APIs** | `pandas`, `numpy`, `pyarrow`, `soccerdata`, `Open-Meteo API`, `StatsBomb API` |
 | **User Interface (Web)** | `Streamlit` |
-| **Quality & Deployment** | `pytest`, `Makefile`, `Docker` *(implicit in orchestration)* |
+| **Quality & Deployment** | `pytest`, `Makefile`, `Docker` *(dev containers)* |
 
 ---
 
