@@ -194,7 +194,7 @@ The Streamlit UI of the project is split into four specialized panels accessible
 
 ## 🤖 AI-Assisted Development
 
-This repository was built adopting modern *AI Pair Programming* methodologies. Artificial intelligence acted as a co-pilot in architectural refactoring, DAG definition, and statistical calibration, optimizing the Research & Development (R&D) cycle and ensuring high modularity in production code.
+This repository was built using modern _AI Pair Programming_ methodologies. Artificial intelligence served as a co-pilot in Python development and within the elaboration of automated tests to guarantee the architecture's functioning as planned by me.
 
 ---
 

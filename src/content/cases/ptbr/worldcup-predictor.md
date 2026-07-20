@@ -196,7 +196,7 @@ A interface Streamlit do projeto divide-se em quatro painéis especializados ace
 
 ## 🤖 Desenvolvimento Assistido por IA
 
-Este repositório foi construído adotando metodologias modernas de _AI Pair Programming_. Inteligência artificial atuou como co-piloto na refatoração arquitetural, definição do DAG e calibração estatística, otimizando o ciclo de _Research & Development_ (R&D) e garantindo alta modularidade no código de produção.
+Este repositório foi construído adotando metodologias modernas de _AI Pair Programming_. Inteligência artificial atuou como co-piloto no desenvolvimento de código Python e na construção de testes automatizados para garantia do funcionamento da arquitetura como planejada por mim.
 
 ---
 
